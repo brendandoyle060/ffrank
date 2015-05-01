@@ -23,7 +23,9 @@ var UserModel = mongoose.model('UserModel', UserSchema);
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(multer()); // for parsing multipart/form-data
-app.use(session({ secret: 'this is the secret' }));
+app.use(session({ secret: 'this is the secret',
+                  saveUninitialized: true,
+                  resave: true}));
 app.use(cookieParser())
 app.use(passport.initialize());
 app.use(passport.session());
