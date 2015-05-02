@@ -1,0 +1,5 @@
+  PID TTY           TIME CMD
+19867 ttys000    0:00.49 -bash
+20005 ttys001    0:00.16 -bash
+22293 ttys001    0:00.15 mongod
+21365 ttys002    0:00.16 -bash
