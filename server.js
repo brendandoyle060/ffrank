@@ -11,7 +11,7 @@ var cookieParser = require('cookie-parser');
 var session      = require('express-session');
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test');
+//mongoose.connect('mongodb://localhost/test');
 
 var WebSiteSchema = new mongoose.Schema({
     name: String,
@@ -19,8 +19,6 @@ var WebSiteSchema = new mongoose.Schema({
 }, {collection: 'website'});
 
 var WebSiteModel = mongoose.model('WebSite', WebSiteSchema);
-
-
 
 app.use(cookieParser())
 app.use(bodyParser.json());
@@ -49,6 +47,10 @@ app.get('/api/website', function (req, res) {
     WebSiteModel.find(function (err, sites) {
         res.json(sites);
     });
+});
+
+app.get('/process', function (req, res) {
+    res.json(process.env);
 });
 
 passport.use(new LocalStrategy(
@@ -99,4 +101,7 @@ app.post('/logout', function(req, res)
     res.send(200);
 });     
 
-app.listen(3000);
+var ip   = process.env.OPENSHIFT_NODEJS_IP   || '127.0.0.1';
+var port = process.env.OPENSHIFT_NODEJS_PORT || 3000;
+
+app.listen(port, ip);
