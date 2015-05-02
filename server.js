@@ -1,7 +1,7 @@
 var express = require('express');
 var app     = express();
 
-var passport      = require('passport');
+/*var passport      = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
 var bodyParser = require('body-parser');
@@ -9,7 +9,7 @@ var multer     = require('multer');
 
 var cookieParser = require('cookie-parser');
 var session      = require('express-session');
-
+*/
 var mongoose = require('mongoose');
 //mongoose.connect('mongodb://localhost/test');
 
@@ -19,7 +19,7 @@ var WebSiteSchema = new mongoose.Schema({
 }, {collection: 'website'});
 
 var WebSiteModel = mongoose.model('WebSite', WebSiteSchema);
-
+/*
 app.use(cookieParser())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -27,7 +27,7 @@ app.use(session({ secret: 'this is the secret' }));
 app.use(multer());
 app.use(passport.initialize());
 app.use(passport.session());
-
+*/
 app.use(express.static(__dirname + '/public'));
 
 app.get('/api/website/:name/create', function (req, res) {
@@ -52,7 +52,7 @@ app.get('/api/website', function (req, res) {
 app.get('/process', function (req, res) {
     res.json(process.env);
 });
-
+/*
 passport.use(new LocalStrategy(
 function(username, password, done)
 {
@@ -99,9 +99,15 @@ app.post('/logout', function(req, res)
 {
     req.logOut();
     res.send(200);
-});     
+});     */
 
 var ip   = process.env.OPENSHIFT_NODEJS_IP   || '127.0.0.1';
 var port = process.env.OPENSHIFT_NODEJS_PORT || 3000;
 
 app.listen(port, ip);
+
+/*
+Database: carsearch 
+User: admin 
+Password: acAFMZJhk_XH
+*/
