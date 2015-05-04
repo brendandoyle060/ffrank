@@ -41,8 +41,18 @@ body {
   width: 100%;
   height: 100%; /* For at least Firefox */
   min-height: 100%;
+  background-image: url(../img/spyder-interior.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
           box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+  color: #fff;
+  text-align: center;
+  text-shadow: -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;
 }
 .site-wrapper-inner {
   display: table-cell;

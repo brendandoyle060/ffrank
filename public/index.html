@@ -8,19 +8,13 @@
 <script src="views/profile/profile.js"></script>
 <script src="views/nav/nav.js"></script>
 <body ng-app="PassportApp">
-    <div class="container">
+
         <nav ng-controller="NavCtrl">
-          <a href="#home">Home</a> |
-          <span ng-show="!currentUser">
-              <a href="#login">Login</a> |
-              <a href="#register">Register</a>
-          </span>
-          <span ng-show="currentUser">
-              <a href="#profile">Profile</a> |
-              <a href="#logout" ng-click="logout()">Logout</a>
-          </span>
+
         </nav>
+
         <div ng-view>
+          
         </div>
-    </div>
+
 </body>
