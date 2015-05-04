@@ -1,5 +1,84 @@
-<h1>Login</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
 
-<input ng-model="user.username"/><br/>
-<input ng-model="user.password"/><br/>
-<button ng-click="login(user)">Login</button><br/>
+    <title>CarSearch Login</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/cover.css" rel="stylesheet">
+
+  </head>
+
+  <body ng-app="PassportApp">
+    <div class="site-wrapper">
+      <div class="site-wrapper-inner">
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand">CarSearch</h3>
+              <nav>
+                <ul class="nav masthead-nav">
+                  <li class="active"><a href="#home">Home</a></li>
+                  <li><a href="#profile">Profile</a></li>
+                  <li><a href="#search">Search</a></li>
+                  <li><a href="#about">About</a></li>
+                  <li><a href="#login">Log In</a></li>
+                  <li><a href="#register">Register</a></li>
+
+                </ul>
+              </nav>
+            </div>
+          </div>
+
+	      <form class="form-signin">
+	        <h2 class="form-signin-heading">Sign in</h2>
+	        <label for="inputEmail" class="sr-only">Email address</label>
+	        <input ng-model="user.username" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+	        <label for="inputPassword" class="sr-only">Password</label>
+	        <input ng-model="user.password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+	        <div class="checkbox">
+	          <label>
+	            <input type="checkbox" value="remember-me"> Remember me
+	          </label>
+	        </div>
+	        <button ng-click="login(user)" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+	      </form>
+
+
+
+
+
+
+
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="container">
+
+ 
+
+    </div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

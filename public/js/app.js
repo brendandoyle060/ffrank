@@ -1,4 +1,3 @@
-
 var app = angular.module("PassportApp", ["ngRoute"]);
 
 app.config(function($routeProvider, $httpProvider) {
