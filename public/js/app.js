@@ -13,6 +13,14 @@ app.config(function($routeProvider, $httpProvider) {
               loggedin: checkLoggedin
           }
       })
+      .when('/search', {
+          templateUrl: 'views/search/search.html',
+          controller: 'SearchCtrl'
+      })
+      .when('/about', {
+          templateUrl: 'views/about/about.html',
+          controller: 'AboutCtrl'
+      })
       .when('/login', {
           templateUrl: 'views/login/login.html',
           controller: 'LoginCtrl'
