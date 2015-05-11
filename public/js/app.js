@@ -14,11 +14,11 @@ app.config(function($routeProvider, $httpProvider) {
       })
       .when('/search', {
           templateUrl: 'views/search/search.html',
-          controller: 'SearchCtrl'
+          // controller: 'SearchCtrl' //DOES NOT NEED CONTROLLER YET
       })
       .when('/about', {
           templateUrl: 'views/about/about.html',
-          controller: 'AboutCtrl'
+          // controller: 'AboutCtrl' //MAY NOT NEED CONTROLLER
       })
       .when('/login', {
           templateUrl: 'views/login/login.html',
