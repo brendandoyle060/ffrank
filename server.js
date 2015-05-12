@@ -11,7 +11,7 @@ var cookieParser = require('cookie-parser');
 var session      = require('express-session');
 
 var mongoose = require('mongoose');
-//mongoose.connect('mongodb://localhost/test');
+// mongoose.connect('mongodb://localhost/test');
 var connectionString = process.env.OPENSHIFT_MONGODB_DB_URL || 'mongodb://localhost/test';
 mongoose.connect(connectionString);
 
@@ -21,7 +21,17 @@ var WebSiteSchema = new mongoose.Schema({
     created: {type: Date, default: Date.now}
 }, {collection: 'website'});
 
+var UserSchema = new mongoose.Schema({
+    email: String,
+    password: String
+});
+
 var WebSiteModel = mongoose.model('WebSite', WebSiteSchema);
+
+var UserModel = mongoose.model('UserModel', UserSchema);
+
+var admin = new UserModel({email: "admin@admin.com", password: "password"})
+var aUser = new UserModel({email: "bob@bob.com", password: "marley"})
 
 app.use(cookieParser())
 app.use(bodyParser.json());
@@ -57,14 +67,30 @@ app.get('/process', function (req, res) {
     res.json(process.env);
 });
 
+// passport.use(new LocalStrategy(
+// function(username, password, done)
+// {
+//     if(username == 'admin' && password == 'alice')//different than in class
+//         //29 minutes into PassportJS video
+//     {
+//         var user = { firstName: 'Alice', lastName: 'Wonderland' };
+//         console.log("USER:" + user);
+//         return done(null, user);
+//     }
+//     console.log("Unable to login");
+//     return done(null, false, {message: 'Unable to login'});
+// }));
+
 passport.use(new LocalStrategy(
 function(username, password, done)
 {
-    if(username == 'admin' && password == 'alice')
+    console.log("username: " + username + " password: " + password);
+    if(username == password)//different than in class
+        //29 minutes into PassportJS video
     {
-        var user = { firstName: 'Alice', lastName: 'Wonderland' };
-        return done(null, user);
+        return done(null, {username: username, password: password});
     }
+    console.log("Unable to login");
     return done(null, false, {message: 'Unable to login'});
 }));
 
@@ -96,6 +122,15 @@ app.get('/loggedin', function(req, res)
     
 app.post('/login', passport.authenticate('local'), function(req, res)
 {
+    console.log("/login");
+    console.log(req.body);
+    res.send(req.user);
+});
+
+app.post('/register', passport.authenticate('local'), function(req, res)
+{
+    console.log("/register");
+    console.log(req.body);
     res.send(req.user);
 });
 

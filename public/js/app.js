@@ -1,6 +1,7 @@
 var app = angular.module("PassportApp", ["ngRoute"]);
 
 app.config(function($routeProvider, $httpProvider) {
+    console.log("app.js config");
     $routeProvider
       .when('/home', {
           templateUrl: 'views/home/home.html'
