@@ -8,6 +8,7 @@ app.controller('ProfileCtrl', function($scope, $http){
     
     $scope.remove = function(user)
     {
+        console.log("profile.js remove");
         $http.delete('/rest/user/'+user._id)
         .success(function(users){
            $scope.users = users; 
@@ -16,6 +17,7 @@ app.controller('ProfileCtrl', function($scope, $http){
     
     $scope.update = function(user)
     {
+        console.log("profile.js update");
         $http.put('/rest/user/'+user._id, user)
         .success(function(users){
             $scope.users = users; 
@@ -24,6 +26,7 @@ app.controller('ProfileCtrl', function($scope, $http){
     
     $scope.add = function(user)
     {
+        console.log("profile.js add");
         $http.post('/rest/user', user)
         .success(function(users){
             $scope.users = users; 
@@ -32,6 +35,7 @@ app.controller('ProfileCtrl', function($scope, $http){
     
     $scope.select = function(user)
     {
+        console.log("profile.js select");
         $scope.user = user;
     }
 });

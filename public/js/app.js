@@ -11,7 +11,7 @@ app.config(function($routeProvider, $httpProvider) {
           controller: 'ProfileCtrl',
           //UNCOMMENT THIS CODE LATER - THIS IS DESIRED FUNCTIONALITY IN
           //  FINAL VERSION.
-          
+
           // resolve: {
           //     loggedin: checkLoggedin
           // }
@@ -39,6 +39,7 @@ app.config(function($routeProvider, $httpProvider) {
 
 var checkLoggedin = function($q, $timeout, $http, $location, $rootScope)
 {
+    console.log("app.js checkLoggedin");
     var deferred = $q.defer();
 
     $http.get('/loggedin').success(function(user)
@@ -63,6 +64,7 @@ var checkLoggedin = function($q, $timeout, $http, $location, $rootScope)
 };
 
 app.controller("NavCtrl", function($scope, $http, $location, $rootScope){
+    console.log("app.js app.controller");
     $scope.logout = function(){
         $http.post("/logout")
         .success(function(){
