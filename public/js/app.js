@@ -9,9 +9,12 @@ app.config(function($routeProvider, $httpProvider) {
       .when('/profile', {
           templateUrl: 'views/profile/profile.html',
           controller: 'ProfileCtrl',
-          resolve: {
-              loggedin: checkLoggedin
-          }
+          //UNCOMMENT THIS CODE LATER - THIS IS DESIRED FUNCTIONALITY IN
+          //  FINAL VERSION.
+          
+          // resolve: {
+          //     loggedin: checkLoggedin
+          // }
       })
       .when('/search', {
           templateUrl: 'views/search/search.html',
