@@ -11,10 +11,9 @@ var cookieParser = require('cookie-parser');
 var session      = require('express-session');
 
 var mongoose = require('mongoose');
-// mongoose.connect('mongodb://localhost/test');
+mongoose.createConnection('mongodb://localhost/test');
 var connectionString = process.env.OPENSHIFT_MONGODB_DB_URL || 'mongodb://localhost/test';
-mongoose.connect(connectionString);
-
+mongoose.createConnection(connectionString);
 
 var WebSiteSchema = new mongoose.Schema({
     name: String,
@@ -22,18 +21,23 @@ var WebSiteSchema = new mongoose.Schema({
 }, {collection: 'website'});
 
 var UserSchema = new mongoose.Schema({
+    username: String,
     email: String,
-    password: String
-});
+    password: String,
+    created: {type: String, lowercase: true, trim: true}
+}, {collection: 'users'});
 
 var WebSiteModel = mongoose.model('WebSite', WebSiteSchema);
 
 var UserModel = mongoose.model('UserModel', UserSchema);
 
-var admin = new UserModel({email: "admin@admin.com", password: "password"})
-var aUser = new UserModel({email: "bob@bob.com", password: "marley"})
+var admin = new UserModel({username: "admin", email: "admin@admin.com", password: "password"});
+var bob = new UserModel({username: "bob", email: "bob@bob.com", password: "marley"});
 
-app.use(cookieParser())
+admin.save();
+bob.save();
+
+app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({ secret: 'this is the secret' }));
@@ -59,6 +63,26 @@ app.get('/api/website/:id', function (req, res) {
 
 app.get('/api/website', function (req, res) {
     WebSiteModel.find(function (err, sites) {
+        res.json(sites);
+    });
+});
+
+app.get('/api/users/:name/create', function (req, res) {
+    var user = new UserModel({ name: req.params.name });
+    user.save(function(err, doc) {
+        res.json(doc);
+    });
+
+});
+
+app.get('/api/users/:id', function (req, res) {
+    UserModel.findById(req.params.id, function (err, site) {
+        res.json(site);
+    });
+});
+
+app.get('/api/users', function (req, res) {
+    UserModel.find(function (err, sites) {
         res.json(sites);
     });
 });
