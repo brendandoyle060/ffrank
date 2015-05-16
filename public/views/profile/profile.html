@@ -1,83 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="../../favicon.ico">
 
-    <title>CarSearch Profile</title>
+        <title>CarSearch Profile</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <!-- Bootstrap core CSS -->
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="../css/cover.css" rel="stylesheet">
-    <style>
-      #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
-      #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
-      #sortable li span { position: absolute; margin-left: -1.3em; }
-    </style>
-    <script src="../js/jquery-1.11.2.js"></script>
-    <script src="../js/jquery-ui.js"></script>
-    <script>
-      $(function() {
-        $( "#sortable" ).sortable();
-        $( "#sortable" ).disableSelection();
-      });
-    </script>
+        <!-- Custom styles for this template -->
+        <link href="../css/cover.css" rel="stylesheet">
 
-  </head>
+        <link href="../css/jquery-ui-1.11.4/jquery-ui.css" rel="stylesheet">
+        <link href="../css/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
+        <link href="../css/jquery-ui-1.11.4/jquery-ui.structure.css" rel="stylesheet">
+        <link href="../css/jquery-ui-1.11.4/jquery-ui.structure.min.css" rel="stylesheet">
+        <link href="../css/jquery-ui-1.11.4/jquery-ui.theme.css" rel="stylesheet">
+        <link href="../css/jquery-ui-1.11.4/jquery-ui.theme.min.css" rel="stylesheet">
 
-  <body ng-app="PassportApp">
-    <div class="site-wrapper">
-      <div class="site-wrapper-inner">
-        <div class="cover-container">
+        <style>
+            .qb-list { list-style-type: none; margin-left: auto; margin-right: auto; padding: 0; width: 50%; }
+            .qb-list li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; }
+            .qb-list li span { position: absolute; margin-left: -1.3em; }
+        </style>
+        <script src="../js/jquery-1.11.2.js"></script>
+        <script src="../css/jquery-ui-1.11.4/jquery-ui.js"></script>
+        <script>
+            $(function() {
+                $( ".player-list" ).sortable();
+                $( ".player-list" ).disableSelection();
+            });
+        </script>
 
-          <div class="masthead clearfix">
-            <div class="inner">
-              <h3 class="masthead-brand">CarSearch</h3>
-              <nav>
-                <ul class="nav masthead-nav">
-                  <li class="active"><a href="#home">Home</a></li>
-                  <li><a href="#profile">Profile</a></li>
-                  <li><a href="#search">Search</a></li>
-                  <li><a href="#about">About</a></li>
-                  <li><a href="#login">Log In</a></li>
-                  <li><a href="#register">Register</a></li>
+    </head>
 
-                </ul>
-              </nav>
+    <body ng-app="FFApiApp"><!--Change back to PassportApp to make things work in future?-->
+        <div class="site-wrapper">
+            <div class="site-wrapper-inner">
+                <div class="cover-container" ng-controller="FFApiCtrl">
+
+                    <div class="masthead clearfix">
+                        <div class="inner">
+                            <h3 class="masthead-brand">CarSearch</h3>
+                                <nav>
+                                    <ul class="nav masthead-nav">
+                                        <li class="active"><a href="#home">Home</a></li>
+                                        <li><a href="#profile">Profile</a></li>
+                                        <li><a href="#search">Search</a></li>
+                                        <li><a href="#about">About</a></li>
+                                        <li><a href="#login">Log In</a></li>
+                                        <li><a href="#register">Register</a></li>
+
+                                    </ul>
+                                </nav>
+                        </div>
+                    </div>
+
+                    <h1>Profile</h1>
+
+                    <!-- {{currentUser}} -->
+
+                    <p>
+                        Such paragraph, wow.
+                        </br>
+                        <!-- {{quarterbacks.Players}} -->
+                    </p>
+
+                    <h4>Quarterbacks</h4>
+                    <div class="qb-list">
+                        <ul ng-repeat="qb in quarterbacks.Players">
+                            <li class="ui-state-default">
+                                <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+                                {{qb.displayName}}
+                                <!-- Item 1 -->
+                            </li><!-- 
+                            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
+                            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+                            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+                            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 5</li>
+                            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 6</li>
+                            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 7</li> -->
+                        </ul>
+                    </div>
+
+                    <div class="mastfoot">
+                        <div class="inner">
+                          <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+                        </div>
+                    </div>
+
+
+                </div>
             </div>
-          </div>
-
-        <h1>Profile</h1>
-
-        <!-- {{currentUser}} -->
-
-
-
-        <h2>Sortable</h2>
-
-        <ul id="sortable">
-          <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
-          <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
-          <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
-          <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
-          <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 5</li>
-          <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 6</li>
-          <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 7</li>
-        </ul>
-
-
-
-        <div class="mastfoot">
-            <div class="inner">
-              <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-            </div>
-          </div>
+        </div>
     </body>
 </html>

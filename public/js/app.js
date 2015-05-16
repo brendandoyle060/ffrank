@@ -8,7 +8,8 @@ app.config(function($routeProvider, $httpProvider) {
       })
       .when('/profile', {
           templateUrl: 'views/profile/profile.html',
-          controller: 'ProfileCtrl',
+          // controller: 'ProfileCtrl',
+          controller: 'FFApiCtrl'
           //UNCOMMENT THIS CODE LATER - THIS IS DESIRED FUNCTIONALITY IN
           //  FINAL VERSION.
 
