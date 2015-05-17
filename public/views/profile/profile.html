@@ -25,69 +25,129 @@
         <link href="../css/jquery-ui-1.11.4/jquery-ui.theme.min.css" rel="stylesheet">
 
         <style>
-            .qb-list { list-style-type: none; margin-left: auto; margin-right: auto; padding: 0; width: 50%; }
-            .qb-list li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; }
-            .qb-list li span { position: absolute; margin-left: -1.3em; }
+            .top-nav {  }
+            .positional-rankings { list-style-type: none; margin-left: auto; margin-right: auto; padding: 0; width: 50%; }
+            .positional-rankings li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; color:black; font-family: "Times New Roman", Times, serif; }
+            .positional-rankings li span { position: absolute; margin-left: -1.3em; }
+            .qbs { list-style: none; }
+            .player-lists { padding-top: 70px; }
+            .col-md-4 { overflow-y:scroll; height:300px; }
         </style>
         <script src="../js/jquery-1.11.2.js"></script>
         <script src="../css/jquery-ui-1.11.4/jquery-ui.js"></script>
         <script>
             $(function() {
-                $( ".player-list" ).sortable();
-                $( ".player-list" ).disableSelection();
+                $( ".positional-rankings" ).sortable();
             });
         </script>
 
     </head>
 
     <body ng-app="FFApiApp"><!--Change back to PassportApp to make things work in future?-->
-        <div class="site-wrapper">
+        <div class="profile-wrapper">
             <div class="site-wrapper-inner">
-                <div class="cover-container" ng-controller="FFApiCtrl">
-
+                <div class="container">
                     <div class="masthead clearfix">
                         <div class="inner">
                             <h3 class="masthead-brand">CarSearch</h3>
-                                <nav>
-                                    <ul class="nav masthead-nav">
-                                        <li class="active"><a href="#home">Home</a></li>
-                                        <li><a href="#profile">Profile</a></li>
-                                        <li><a href="#search">Search</a></li>
-                                        <li><a href="#about">About</a></li>
-                                        <li><a href="#login">Log In</a></li>
-                                        <li><a href="#register">Register</a></li>
+                            <nav class="top-nav">
+                                <ul class="nav masthead-nav">
+                                    <li class="active"><a href="#home">Home</a></li>
+                                    <li><a href="#profile">Profile</a></li>
+                                    <li><a href="#search">Search</a></li>
+                                    <li><a href="#about">About</a></li>
+                                    <li><a href="#login">Log In</a></li>
+                                    <li><a href="#register">Register</a></li>
 
-                                    </ul>
-                                </nav>
+                                </ul>
+                            </nav>
                         </div>
                     </div>
+                </div>
 
-                    <h1>Profile</h1>
+                <div class="container player-lists">
+                  <!-- Example row of columns -->
+                  <div class="row">
+                    <div class="col-md-4">
+                        <h2>Quarterback</h2>
+                        <div class="positional-rankings">
+                            <ul ng-repeat="qb in quarterbacks.Players" class="qbs">
+                                <li class="ui-state-default">
+                                    <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+                                    {{qb.displayName}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h2>Running Back</h2>
+                        <div class="positional-rankings">
+                            <ul ng-repeat="qb in quarterbacks.Players" class="qbs">
+                                <li class="ui-state-default">
+                                    <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+                                    {{qb.displayName}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h2>Wide Receiver</h2>
+                        <div class="positional-rankings">
+                            <ul ng-repeat="qb in quarterbacks.Players" class="qbs">
+                                <li class="ui-state-default">
+                                    <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+                                    {{qb.displayName}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-4">
+                        <h2>Tight End</h2>
+                        <div class="positional-rankings">
+                            <ul ng-repeat="qb in quarterbacks.Players" class="qbs">
+                                <li class="ui-state-default">
+                                    <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+                                    {{qb.displayName}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h2>Defense/Special Teams</h2>
+                        <div class="positional-rankings">
+                            <ul ng-repeat="qb in quarterbacks.Players" class="qbs">
+                                <li class="ui-state-default">
+                                    <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+                                    {{qb.displayName}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h2>Kickers</h2>
+                        <div class="positional-rankings">
+                            <ul ng-repeat="qb in quarterbacks.Players" class="qbs">
+                                <li class="ui-state-default">
+                                    <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+                                    {{qb.displayName}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                  </div>
+
+
+
+
+                <div class="cover-container" ng-controller="FFApiCtrl">
+
+                    
+
 
                     <!-- {{currentUser}} -->
-
-                    <p>
-                        Such paragraph, wow.
-                        </br>
-                        <!-- {{quarterbacks.Players}} -->
-                    </p>
-
-                    <h4>Quarterbacks</h4>
-                    <div class="qb-list">
-                        <ul ng-repeat="qb in quarterbacks.Players">
-                            <li class="ui-state-default">
-                                <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-                                {{qb.displayName}}
-                                <!-- Item 1 -->
-                            </li><!-- 
-                            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
-                            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
-                            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
-                            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 5</li>
-                            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 6</li>
-                            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 7</li> -->
-                        </ul>
-                    </div>
 
                     <div class="mastfoot">
                         <div class="inner">
@@ -97,7 +157,7 @@
 
 
                 </div>
-            </div>
+            </div> 
         </div>
     </body>
 </html>
