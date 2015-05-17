@@ -25,12 +25,47 @@
         <link href="../css/jquery-ui-1.11.4/jquery-ui.theme.min.css" rel="stylesheet">
 
         <style>
-            .positional-rankings { list-style-type: none; margin-left: auto; margin-right: auto; padding: 0; width: 80%; background-color: #d2d2d2; }
+            .positional-rankings { list-style-type: none; margin-left: auto; margin-right: auto; padding: 5px; width: 85%; background-color: #d2d2d2; }
             .positional-rankings li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; color:black; font-family: "Times New Roman", Times, serif; }
             .positional-rankings li span { position: absolute; margin-left: -1.3em; }
             .player-position { list-style-type: none; padding: 0; margin: 0; }
             .player-lists { padding-top: 70px; }
-            .col-md-4 { overflow-y:scroll; height:300px; }
+            .col-md-4 { overflow-y: scroll; height: 300px; }
+
+            html {
+              position: relative;
+              min-height: 100%;
+            }
+            body {
+              /* Margin bottom by footer height */
+              margin-bottom: 60px;
+            }
+            .footer {
+              position: fixed;
+              bottom: 0;
+              width: 100%;
+              /* Set the fixed height of the footer here */
+              height: 60px;
+              background-color: blue;
+            }
+
+            body > .container {
+              padding: 60px 15px 0;
+            }
+            .container .text-muted {
+              margin: 20px 0;
+            }
+
+            .footer > .container {
+              padding-right: 15px;
+              padding-left: 15px;
+            }
+
+            code {
+              font-size: 80%;
+            }
+
+            .row { padding-top: 20px; padding-bottom: 20px; }
         </style>
         <script src="../js/jquery-1.11.2.js"></script>
         <script src="../css/jquery-ui-1.11.4/jquery-ui.js"></script>
@@ -138,24 +173,9 @@
                   </div>
 
 
-
-
-                <div class="cover-container" ng-controller="FFApiCtrl">
-
-                    
-
-
-                    <!-- {{currentUser}} -->
-
-                    <div class="mastfoot">
-                        <div class="inner">
-                          <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-                        </div>
-                    </div>
-
-
-                </div>
             </div> 
         </div>
     </body>
+
+
 </html>
