@@ -10,10 +10,10 @@ var multer     = require('multer');
 var cookieParser = require('cookie-parser');
 var session      = require('express-session');
 
-var mongoose = require('mongoose');
-mongoose.createConnection('mongodb://localhost/test');
-var connectionString = process.env.OPENSHIFT_MONGODB_DB_URL || 'mongodb://localhost/test';
-mongoose.createConnection(connectionString);
+// var mongoose = require('mongoose');
+// mongoose.createConnection('mongodb://localhost/test');
+// var connectionString = process.env.OPENSHIFT_MONGODB_DB_URL || 'mongodb://localhost/test';
+// mongoose.createConnection(connectionString);
 
 var WebSiteSchema = new mongoose.Schema({
     name: String,
@@ -166,6 +166,19 @@ app.post('/logout', function(req, res)
 
 var ip   = process.env.OPENSHIFT_NODEJS_IP   || '127.0.0.1';
 var port = process.env.OPENSHIFT_NODEJS_PORT || 3000;
+
+// default to a 'localhost' configuration:
+var connection_string = '127.0.0.1:27017/ffrank';
+// if OPENSHIFT env variables are present, use the available connection info:
+if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD){
+  connection_string = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
+  process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" +
+  process.env.OPENSHIFT_MONGODB_DB_HOST + ':' +
+  process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
+  process.env.OPENSHIFT_APP_NAME;
+}
+
+mongoose.createConnection(connection_string);
 
 // server.listen(server_port, server_ip_address, function () {
 //   console.log( "Listening on " + server_ip_address + ", server_port " + port )
