@@ -25,11 +25,10 @@
         <link href="../css/jquery-ui-1.11.4/jquery-ui.theme.min.css" rel="stylesheet">
 
         <style>
-            .top-nav {  }
-            .positional-rankings { list-style-type: none; margin-left: auto; margin-right: auto; padding: 0; width: 50%; }
+            .positional-rankings { list-style-type: none; margin-left: auto; margin-right: auto; padding: 0; width: 80%; background-color: #d2d2d2; }
             .positional-rankings li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; color:black; font-family: "Times New Roman", Times, serif; }
             .positional-rankings li span { position: absolute; margin-left: -1.3em; }
-            .qbs { list-style: none; }
+            .player-position { list-style-type: none; padding: 0; margin: 0; }
             .player-lists { padding-top: 70px; }
             .col-md-4 { overflow-y:scroll; height:300px; }
         </style>
@@ -66,12 +65,11 @@
                 </div>
 
                 <div class="container player-lists">
-                  <!-- Example row of columns -->
                   <div class="row">
                     <div class="col-md-4">
                         <h2>Quarterback</h2>
                         <div class="positional-rankings">
-                            <ul ng-repeat="qb in quarterbacks.Players" class="qbs">
+                            <ul ng-repeat="qb in quarterbacks.Players" class="player-position">
                                 <li class="ui-state-default">
                                     <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
                                     {{qb.displayName}}
@@ -82,10 +80,10 @@
                     <div class="col-md-4">
                         <h2>Running Back</h2>
                         <div class="positional-rankings">
-                            <ul ng-repeat="qb in quarterbacks.Players" class="qbs">
+                            <ul ng-repeat="rb in runningbacks.Players" class="player-position">
                                 <li class="ui-state-default">
                                     <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-                                    {{qb.displayName}}
+                                    {{rb.displayName}}
                                 </li>
                             </ul>
                         </div>
@@ -93,10 +91,10 @@
                     <div class="col-md-4">
                         <h2>Wide Receiver</h2>
                         <div class="positional-rankings">
-                            <ul ng-repeat="qb in quarterbacks.Players" class="qbs">
+                            <ul ng-repeat="wr in widereceivers.Players" class="player-position">
                                 <li class="ui-state-default">
                                     <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-                                    {{qb.displayName}}
+                                    {{wr.displayName}}
                                 </li>
                             </ul>
                         </div>
@@ -107,10 +105,10 @@
                     <div class="col-md-4">
                         <h2>Tight End</h2>
                         <div class="positional-rankings">
-                            <ul ng-repeat="qb in quarterbacks.Players" class="qbs">
+                            <ul ng-repeat="te in tightends.Players" class="player-position">
                                 <li class="ui-state-default">
                                     <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-                                    {{qb.displayName}}
+                                    {{te.displayName}}
                                 </li>
                             </ul>
                         </div>
@@ -118,10 +116,10 @@
                     <div class="col-md-4">
                         <h2>Defense/Special Teams</h2>
                         <div class="positional-rankings">
-                            <ul ng-repeat="qb in quarterbacks.Players" class="qbs">
+                            <ul ng-repeat="def in defenses.Players" class="player-position">
                                 <li class="ui-state-default">
                                     <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-                                    {{qb.displayName}}
+                                    {{def.displayName}}
                                 </li>
                             </ul>
                         </div>
@@ -129,10 +127,10 @@
                     <div class="col-md-4">
                         <h2>Kickers</h2>
                         <div class="positional-rankings">
-                            <ul ng-repeat="qb in quarterbacks.Players" class="qbs">
+                            <ul ng-repeat="k in kickers.Players" class="player-position">
                                 <li class="ui-state-default">
                                     <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-                                    {{qb.displayName}}
+                                    {{k.displayName}}
                                 </li>
                             </ul>
                         </div>
