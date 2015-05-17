@@ -1,39 +1,40 @@
 app.controller('FFApiCtrl', function($scope, $http){
     console.log("FFApiCtrl entered");
 
-    var url = "http://www.fantasyfootballnerd.com/service/players/json/x8xwrrhb9et3/";
+    var url = "http://draft.gnmerritt.net/api/v1/nfl/position/";
+    var callback = "?callback=JSON_CALLBACK";
 
-    $http.get(url + "QB/")
+    $http.jsonp(url + "QB" + callback)
     .success(function (response) {
         console.log("FFApiCtrl qb + " + response);
         $scope.quarterbacks = response;
     });
 
-    $http.get(url + "RB/")
+    $http.jsonp(url + "RB" + callback)
     .success(function (response) {
         console.log("FFApiCtrl rb + " + response);
         $scope.runningbacks = response;
     });
 
-    $http.get(url + "WR/")
+    $http.jsonp(url + "WR" + callback)
     .success(function (response) {
         console.log("FFApiCtrl wr + " + response);
         $scope.widereceivers = response;
     });
 
-    $http.get(url + "TE/")
+    $http.jsonp(url + "TE" + callback)
     .success(function (response) {
         console.log("FFApiCtrl te + " + response);
         $scope.tightends = response;
     });
 
-    $http.get(url + "DEF/")
+    $http.jsonp(url + "DST" + callback)
     .success(function (response) {
         console.log("FFApiCtrl def + " + response);
         $scope.defenses = response;
     });
 
-    $http.get(url + "K/")
+    $http.jsonp(url + "K" + callback)
     .success(function (response) {
         console.log("FFApiCtrl k + " + response);
         $scope.kickers = response;

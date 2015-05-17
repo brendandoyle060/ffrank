@@ -9,7 +9,7 @@
         <meta name="author" content="">
         <link rel="icon" href="../../favicon.ico">
 
-        <title>CarSearch Profile</title>
+        <title>Fantasy Football Rankings Profile</title>
 
         <!-- Bootstrap core CSS -->
         <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -29,43 +29,17 @@
             .positional-rankings li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; color:black; font-family: "Times New Roman", Times, serif; }
             .positional-rankings li span { position: absolute; margin-left: -1.3em; }
             .player-position { list-style-type: none; padding: 0; margin: 0; }
-            .player-lists { padding-top: 70px; }
+            .player-lists { padding-top: 170px; }
             .col-md-4 { overflow-y: scroll; height: 300px; }
-
-            html {
-              position: relative;
-              min-height: 100%;
-            }
-            body {
-              /* Margin bottom by footer height */
-              margin-bottom: 60px;
-            }
-            .footer {
-              position: fixed;
-              bottom: 0;
-              width: 100%;
-              /* Set the fixed height of the footer here */
-              height: 60px;
-              background-color: blue;
-            }
-
-            body > .container {
-              padding: 60px 15px 0;
-            }
-            .container .text-muted {
-              margin: 20px 0;
-            }
-
-            .footer > .container {
-              padding-right: 15px;
-              padding-left: 15px;
-            }
-
-            code {
-              font-size: 80%;
-            }
-
+            html { position: relative; min-height: 100%; }
+            body { margin-bottom: 60px; }
+            .footer { position: fixed; bottom: 0; width: 100%; height: 60px; background-color: blue; }
+            body > .container { padding: 60px 15px 0; }
+            .container .text-muted { margin: 20px 0; }
+            .footer > .container { padding-right: 15px; padding-left: 15px; }
+            code { font-size: 80%; }
             .row { padding-top: 20px; padding-bottom: 20px; }
+            .btn-warning { margin-right: 20px; margin-top: 100px;}
         </style>
         <script src="../js/jquery-1.11.2.js"></script>
         <script src="../css/jquery-ui-1.11.4/jquery-ui.js"></script>
@@ -83,13 +57,14 @@
                 <div class="container">
                     <div class="masthead clearfix">
                         <div class="inner">
-                            <h3 class="masthead-brand">CarSearch</h3>
+                            <h3 class="masthead-brand">FFRank</h3>
                             <nav class="top-nav">
                                 <ul class="nav masthead-nav">
-                                    <li class="active"><a href="#home">Home</a></li>
-                                    <li><a href="#profile">Profile</a></li>
+                                    <li><a href="#home">Home</a></li>
+                                    <li class="active"><a href="#profile">Profile</a></li>
                                     <li><a href="#search">Search</a></li>
                                     <li><a href="#about">About</a></li>
+                                    <li><a href="#favorites">Favorites</a></li>
                                     <li><a href="#login">Log In</a></li>
                                     <li><a href="#register">Register</a></li>
 
@@ -99,15 +74,27 @@
                     </div>
                 </div>
 
+
+                <div>
+                    <button type="button" class="btn btn-lg btn-warning pull-right">Favorite</button>
+                </div>
+
+
+                <!-- {{runningbacks}}
+                {{widereceivers}}
+                {{tightends}}
+                {{defenses}}
+                {{kickers}}-->
+
                 <div class="container player-lists">
                   <div class="row">
                     <div class="col-md-4">
                         <h2>Quarterback</h2>
                         <div class="positional-rankings">
-                            <ul ng-repeat="qb in quarterbacks.Players" class="player-position">
+                            <ul ng-repeat="qb in quarterbacks.results" class="player-position">
                                 <li class="ui-state-default">
                                     <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-                                    {{qb.displayName}}
+                                    {{qb.first_name}} {{qb.last_name}}
                                 </li>
                             </ul>
                         </div>
@@ -115,10 +102,10 @@
                     <div class="col-md-4">
                         <h2>Running Back</h2>
                         <div class="positional-rankings">
-                            <ul ng-repeat="rb in runningbacks.Players" class="player-position">
+                            <ul ng-repeat="rb in runningbacks.results" class="player-position">
                                 <li class="ui-state-default">
                                     <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-                                    {{rb.displayName}}
+                                    {{rb.first_name}} {{rb.last_name}}
                                 </li>
                             </ul>
                         </div>
@@ -126,10 +113,10 @@
                     <div class="col-md-4">
                         <h2>Wide Receiver</h2>
                         <div class="positional-rankings">
-                            <ul ng-repeat="wr in widereceivers.Players" class="player-position">
+                            <ul ng-repeat="wr in widereceivers.results" class="player-position">
                                 <li class="ui-state-default">
                                     <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-                                    {{wr.displayName}}
+                                    {{wr.first_name}} {{wr.last_name}}
                                 </li>
                             </ul>
                         </div>
@@ -140,10 +127,10 @@
                     <div class="col-md-4">
                         <h2>Tight End</h2>
                         <div class="positional-rankings">
-                            <ul ng-repeat="te in tightends.Players" class="player-position">
+                            <ul ng-repeat="te in tightends.results" class="player-position">
                                 <li class="ui-state-default">
                                     <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-                                    {{te.displayName}}
+                                    {{te.first_name}} {{te.last_name}}
                                 </li>
                             </ul>
                         </div>
@@ -151,10 +138,10 @@
                     <div class="col-md-4">
                         <h2>Defense/Special Teams</h2>
                         <div class="positional-rankings">
-                            <ul ng-repeat="def in defenses.Players" class="player-position">
+                            <ul ng-repeat="dst in defenses.results" class="player-position">
                                 <li class="ui-state-default">
                                     <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-                                    {{def.displayName}}
+                                    {{dst.last_name}}
                                 </li>
                             </ul>
                         </div>
@@ -162,10 +149,10 @@
                     <div class="col-md-4">
                         <h2>Kickers</h2>
                         <div class="positional-rankings">
-                            <ul ng-repeat="k in kickers.Players" class="player-position">
+                            <ul ng-repeat="k in kickers.results" class="player-position">
                                 <li class="ui-state-default">
                                     <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-                                    {{k.displayName}}
+                                    {{k.first_name}} {{k.last_name}}
                                 </li>
                             </ul>
                         </div>
