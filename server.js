@@ -10,32 +10,10 @@ var multer     = require('multer');
 var cookieParser = require('cookie-parser');
 var session      = require('express-session');
 
-// var mongoose = require('mongoose');
-// mongoose.createConnection('mongodb://localhost/test');
-// var connectionString = process.env.OPENSHIFT_MONGODB_DB_URL || 'mongodb://localhost/test';
-// mongoose.createConnection(connectionString);
+var mongoose = require('mongoose');
 
-var WebSiteSchema = new mongoose.Schema({
-    name: String,
-    created: {type: Date, default: Date.now}
-}, {collection: 'website'});
 
-var UserSchema = new mongoose.Schema({
-    username: String,
-    email: String,
-    password: String,
-    created: {type: String, lowercase: true, trim: true}
-}, {collection: 'users'});
 
-var WebSiteModel = mongoose.model('WebSite', WebSiteSchema);
-
-var UserModel = mongoose.model('UserModel', UserSchema);
-
-var admin = new UserModel({username: "admin", email: "admin@admin.com", password: "password"});
-var bob = new UserModel({username: "bob", email: "bob@bob.com", password: "marley"});
-
-admin.save();
-bob.save();
 
 app.use(cookieParser());
 app.use(bodyParser.json());
@@ -46,6 +24,36 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(express.static(__dirname + '/public'));
+
+
+// mongoose.createConnection('mongodb://localhost/test');
+// mongoose.connect('mongodb://localhost/test');
+// var connectionString = process.env.OPENSHIFT_MONGODB_DB_URL || 'mongodb://localhost/test';
+// mongoose.createConnection(connectionString);
+
+
+// var WebSiteSchema = new mongoose.Schema({
+//     name: String,
+//     created: {type: Date, default: Date.now}
+// }, {collection: 'website'});
+
+var UserSchema = new mongoose.Schema({
+    username: String,
+    email: String,
+    password: String,
+    created: {type: String, lowercase: true, trim: true}
+}, {collection: 'users'});
+
+// var WebSiteModel = mongoose.model('WebSite', WebSiteSchema);
+
+var User = mongoose.model('User', UserSchema);
+
+var admin = new User({username: "admin", email: "admin@admin.com", password: "password"});
+var bob = new User({username: "bob", email: "bob@bob.com", password: "marley"});
+
+admin.save();
+bob.save();
+
 
 app.get('/api/website/:name/create', function (req, res) {
     var website = new WebSiteModel({ name: req.params.name });
@@ -167,18 +175,20 @@ app.post('/logout', function(req, res)
 var ip   = process.env.OPENSHIFT_NODEJS_IP   || '127.0.0.1';
 var port = process.env.OPENSHIFT_NODEJS_PORT || 3000;
 
-// default to a 'localhost' configuration:
-var connection_string = '127.0.0.1:27017/ffrank';
-// if OPENSHIFT env variables are present, use the available connection info:
-if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD){
-  connection_string = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
-  process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" +
-  process.env.OPENSHIFT_MONGODB_DB_HOST + ':' +
-  process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
-  process.env.OPENSHIFT_APP_NAME;
-}
+// // default to a 'localhost' configuration:
+// var connection_string = '127.0.0.1:27017/ffrank';
+// // if OPENSHIFT env variables are present, use the available connection info:
+// if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD){
+//   connection_string = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
+//   process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" +
+//   process.env.OPENSHIFT_MONGODB_DB_HOST + ':' +
+//   process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
+//   process.env.OPENSHIFT_APP_NAME;
+// }
 
-mongoose.createConnection(connection_string);
+var connection_string = process.env.OPENSHIFT_MONGODB_DB_URL || "mongodb://localhost/test";
+
+mongoose.connect(connection_string);
 
 // server.listen(server_port, server_ip_address, function () {
 //   console.log( "Listening on " + server_ip_address + ", server_port " + port )
