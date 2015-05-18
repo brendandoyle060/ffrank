@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      table, th, td {
+          border: 1px solid black;
+          border-collapse:collapse;
+      }
+      th, td {
+          padding: 5px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <script>
+      if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+          xmlhttp=new XMLHttpRequest();
+      }
+      else {// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      xmlhttp.open("GET", "../xml/qb.xml", false);
+      xmlhttp.send();
+      xmlDoc=xmlhttp.responseXML; 
+
+      // document.write("<table><tr><th>Artist</th><th>Title</th></tr>");
+      // var x=xmlDoc.getElementsByTagName("CD");
+
+      // for (i=0;i<x.length;i++) { 
+      //   document.write("<tr><td>");
+      //   document.write(x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue);
+      //   document.write("</td><td>");
+      //   document.write(x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue);
+      //   document.write("</td></tr>");
+      // }
+      // document.write("</table>");
+
+      document.write("<ul>");
+
+      var allPlayerObjects = xmlDoc.getElementsByTagName("Player");
+      var allPlayerNames = [];
+
+      for (i = 0; i < allPlayers.length; i++) { 
+        allPlayerNames.push(allPlayers[i].getAttribute("displayName"));
+      }
+
+      document.write("</ul>");
+
+    </script>
+  </body>
+
+</html>

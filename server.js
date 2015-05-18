@@ -1,19 +1,12 @@
 var express = require('express');
 var app     = express();
-
 var passport      = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-
 var bodyParser = require('body-parser');
 var multer     = require('multer'); 
-
 var cookieParser = require('cookie-parser');
 var session      = require('express-session');
-
 var mongoose = require('mongoose');
-
-
-
 
 app.use(cookieParser());
 app.use(bodyParser.json());
@@ -25,18 +18,6 @@ app.use(passport.session());
 
 app.use(express.static(__dirname + '/public'));
 
-
-// mongoose.createConnection('mongodb://localhost/test');
-// mongoose.connect('mongodb://localhost/test');
-// var connectionString = process.env.OPENSHIFT_MONGODB_DB_URL || 'mongodb://localhost/test';
-// mongoose.createConnection(connectionString);
-
-
-// var WebSiteSchema = new mongoose.Schema({
-//     name: String,
-//     created: {type: Date, default: Date.now}
-// }, {collection: 'website'});
-
 var UserSchema = new mongoose.Schema({
     username: String,
     email: String,
@@ -44,7 +25,6 @@ var UserSchema = new mongoose.Schema({
     created: {type: String, lowercase: true, trim: true}
 }, {collection: 'users'});
 
-// var WebSiteModel = mongoose.model('WebSite', WebSiteSchema);
 
 var User = mongoose.model('User', UserSchema);
 
@@ -175,24 +155,8 @@ app.post('/logout', function(req, res)
 var ip   = process.env.OPENSHIFT_NODEJS_IP   || '127.0.0.1';
 var port = process.env.OPENSHIFT_NODEJS_PORT || 3000;
 
-// // default to a 'localhost' configuration:
-// var connection_string = '127.0.0.1:27017/ffrank';
-// // if OPENSHIFT env variables are present, use the available connection info:
-// if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD){
-//   connection_string = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
-//   process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" +
-//   process.env.OPENSHIFT_MONGODB_DB_HOST + ':' +
-//   process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
-//   process.env.OPENSHIFT_APP_NAME;
-// }
-
 var connection_string = process.env.OPENSHIFT_MONGODB_DB_URL || "mongodb://localhost/test";
-
 mongoose.connect(connection_string);
-
-// server.listen(server_port, server_ip_address, function () {
-//   console.log( "Listening on " + server_ip_address + ", server_port " + port )
-// });
 
 app.use(function (req, res, next) {
 
@@ -214,9 +178,3 @@ app.use(function (req, res, next) {
 });
 
 app.listen(port, ip);
-
-/*
-Database: carsearch 
-User: admin 
-Password: acAFMZJhk_XH
-*/
