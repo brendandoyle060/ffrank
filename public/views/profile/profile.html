@@ -49,43 +49,16 @@
             });
         </script>
 
-        <script>
-
-            // function parseXML(position) {
-            
-            //     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-            //         xmlhttp=new XMLHttpRequest();
-            //     }
-            //     else {// code for IE6, IE5
-            //         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-            //     }
-
-            //     var filename = "../xml/" + position + ".xml";
-
-            //     xmlhttp.open("GET", filename, false);
-            //     xmlhttp.send();
-            //     xmlDoc=xmlhttp.responseXML; 
-
-            //     document.write("<ul>");
-
-            //     var allPlayerObjects = xmlDoc.getElementsByTagName("Player");
-            //     var allPlayerNames = [];
-
-            //     for (i = 0; i < allPlayers.length; i++) { 
-            //         console.log("player: " + allPlayers[i].getAttribute("displayName"));
-            //         allPlayerNames.push(allPlayers[i].getAttribute("displayName"));
-            //     }
-
-            //     document.write("</ul>");
-
-            //     return allPlayerNames;
-            // };
-
-        </script>
-
     </head>
 
     <body ng-app="FFApiApp"><!--Change back to PassportApp to make things work in future?-->
+
+        <div ng-controller="QbCtrl">
+
+            <h2>{{qbList}}</h2>
+
+        </div>
+
         <div class="profile-wrapper">
             <div class="site-wrapper-inner">
                 <div class="container">
@@ -114,7 +87,7 @@
                 </div>
 
 
-                <div ng-controller="parseXML" class="container player-lists">
+                <div class="container player-lists">
                     <!-- <h2>{{playersByPosition}}</h2> -->
                     <div class="row">
                         <div class="col-md-4">

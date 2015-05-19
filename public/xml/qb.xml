@@ -1,6 +1,6 @@
 <Players>
 	<Player playerId="2" active="1" jersey="3" lname="Anderson" fname="Derek" displayName="Derek Anderson" team="CAR" position="QB" height="6-6" weight="230" dob="1983-06-15" college="Oregon State"/>
-	<Player playerId="1208" active="1" jersey="0" lname="Archer" fname="R.J." displayName="R.J. Archer" team="SEA" position="QB" height="6-2" weight="220" dob="0000-00-00" college="William & Mary"/>
+	<Player playerId="1208" active="1" jersey="0" lname="Archer" fname="R.J." displayName="R.J. Archer" team="SEA" position="QB" height="6-2" weight="220" dob="0000-00-00" college="William &amp; Mary"/>
 	<Player playerId="2168" active="1" jersey="2" lname="Barkley" fname="Matt" displayName="Matt Barkley" team="PHI" position="QB" height="6-2" weight="227" dob="0000-00-00" college="USC"/>
 	<Player playerId="2869" active="1" jersey="3" lname="Bennett" fname="Bryan" displayName="Bryan Bennett" team="IND" position="QB" height="6-2" weight="211" dob="0000-00-00" college="--"/>
 	<Player playerId="1475" active="1" jersey="16" lname="Bethel-Thompson" fname="McLeod" displayName="McLeod Bethel-Thompson" team="MIA" position="QB" height="6-3" weight="230" dob="0000-00-00" college="Sacramento State"/>
@@ -59,7 +59,7 @@
 	<Player playerId="56" active="1" jersey="7" lname="Jackson" fname="Tarvaris" displayName="Tarvaris Jackson" team="SEA" position="QB" height="6-2" weight="225" dob="1983-04-21" college="Alabama State"/>
 	<Player playerId="2433" active="1" jersey="6" lname="Jensen" fname="Brock" displayName="Brock Jensen" team="MIA" position="QB" height="6-3" weight="225" dob="0000-00-00" college="North Dakota State"/>
 	<Player playerId="58" active="1" jersey="8" lname="Johnson" fname="Josh" displayName="Josh Johnson" team="CIN" position="QB" height="6-3" weight="205" dob="1986-05-15" college="San Diego"/>
-	<Player playerId="1484" active="1" jersey="0" lname="Johnson" fname="Jerrod" displayName="Jerrod Johnson" team="CHI" position="QB" height="6-5" weight="251" dob="0000-00-00" college="Texas A&M"/>
+	<Player playerId="1484" active="1" jersey="0" lname="Johnson" fname="Jerrod" displayName="Jerrod Johnson" team="CHI" position="QB" height="6-5" weight="251" dob="0000-00-00" college="Texas A&amp;M"/>
 	<Player playerId="2288" active="1" jersey="3" lname="Jones" fname="Landry" displayName="Landry Jones" team="PIT" position="QB" height="6-3" weight="221" dob="0000-00-00" college="Oklahoma"/>
 	<Player playerId="1394" active="1" jersey="7" lname="Kaepernick" fname="Colin" displayName="Colin Kaepernick" team="SF" position="QB" height="6-4" weight="230" dob="0000-00-00" college="Nevada"/>
 	<Player playerId="1114" active="1" jersey="0" lname="Kafka" fname="Mike" displayName="Mike Kafka" team="MIN" position="QB" height="6-3" weight="225" dob="0000-00-00" college="Northwestern"/>
@@ -80,7 +80,7 @@
 	<Player playerId="66" active="1" jersey="18" lname="Manning" fname="Peyton" displayName="Peyton Manning" team="DEN" position="QB" height="6-5" weight="230" dob="1976-03-24" college="Tennessee"/>
 	<Player playerId="2770" active="1" jersey="4" lname="Mannion" fname="Sean" displayName="Sean Mannion" team="STL" position="QB" height="6-6" weight="229" dob="0000-00-00" college="Oregon State"/>
 	<Player playerId="2114" active="1" jersey="3" lname="Manuel" fname="EJ" displayName="EJ Manuel" team="BUF" position="QB" height="6-4" weight="237" dob="0000-00-00" college="Florida State"/>
-	<Player playerId="2562" active="1" jersey="2" lname="Manziel" fname="Johnny" displayName="Johnny Manziel" team="CLE" position="QB" height="6-0" weight="210" dob="0000-00-00" college="Texas A&M"/>
+	<Player playerId="2562" active="1" jersey="2" lname="Manziel" fname="Johnny" displayName="Johnny Manziel" team="CLE" position="QB" height="6-0" weight="210" dob="0000-00-00" college="Texas A&amp;M"/>
 	<Player playerId="2801" active="1" jersey="8" lname="Mariota" fname="Marcus" displayName="Marcus Mariota" team="TEN" position="QB" height="6-4" weight="220" dob="0000-00-00" college="Oregon"/>
 	<Player playerId="2650" active="1" jersey="9" lname="Matthews" fname="Jeff" displayName="Jeff Matthews" team="ATL" position="QB" height="6-4" weight="229" dob="0000-00-00" college="Cornell"/>
 	<Player playerId="2554" active="1" jersey="5" lname="McCarron" fname="AJ" displayName="AJ McCarron" team="CIN" position="QB" height="6-3" weight="220" dob="0000-00-00" college="Alabama"/>
@@ -133,7 +133,7 @@
 	<Player playerId="102" active="1" jersey="5" lname="Stanton" fname="Drew" displayName="Drew Stanton" team="ARI" position="QB" height="6-3" weight="243" dob="0000-00-00" college="Michigan State"/>
 	<Player playerId="1400" active="1" jersey="2" lname="Stanzi" fname="Ricky" displayName="Ricky Stanzi" team="NYG" position="QB" height="6-4" weight="228" dob="0000-00-00" college="Iowa"/>
 	<Player playerId="1953" active="1" jersey="0" lname="Stephens" fname="Nick" displayName="Nick Stephens" team="BAL" position="QB" height="6-3" weight="221" dob="0000-00-00" college="Tarleton State"/>
-	<Player playerId="1758" active="1" jersey="17" lname="Tannehill" fname="Ryan" displayName="Ryan Tannehill" team="MIA" position="QB" height="6-4" weight="220" dob="0000-00-00" college="Texas A&M"/>
+	<Player playerId="1758" active="1" jersey="17" lname="Tannehill" fname="Ryan" displayName="Ryan Tannehill" team="MIA" position="QB" height="6-4" weight="220" dob="0000-00-00" college="Texas A&amp;M"/>
 	<Player playerId="2084" active="1" jersey="11" lname="Tanney" fname="Alex" displayName="Alex Tanney" team="TEN" position="QB" height="6-4" weight="220" dob="0000-00-00" college="Monmouth (Ill.)"/>
 	<Player playerId="1401" active="1" jersey="2" lname="Taylor" fname="Tyrod" displayName="Tyrod Taylor" team="BUF" position="QB" height="6-1" weight="208" dob="0000-00-00" college="Virginia Tech"/>
 	<Player playerId="1121" active="1" jersey="11" lname="Tebow" fname="Tim" displayName="Tim Tebow" team="PHI" position="QB" height="6-3" weight="236" dob="1987-08-14" college="Florida"/>
@@ -142,7 +142,7 @@
 	<Player playerId="2832" active="1" jersey="0" lname="Thompson" fname="Dylan" displayName="Dylan Thompson" team="SF" position="QB" height="6-3" weight="218" dob="0000-00-00" college="--"/>
 	<Player playerId="1490" active="1" jersey="16" lname="Tolzien" fname="Scott" displayName="Scott Tolzien" team="GB" position="QB" height="6-2" weight="213" dob="0000-00-00" college="Wisconsin"/>
 	<Player playerId="2115" active="1" jersey="7" lname="Tuel" fname="Jeff" displayName="Jeff Tuel" team="BUF" position="QB" height="6-3" weight="221" dob="0000-00-00" college="Washington State"/>
-	<Player playerId="2456" active="1" jersey="10" lname="Vaughan" fname="Dustin" displayName="Dustin Vaughan" team="DAL" position="QB" height="6-5" weight="235" dob="0000-00-00" college="West Texas A&M"/>
+	<Player playerId="2456" active="1" jersey="10" lname="Vaughan" fname="Dustin" displayName="Dustin Vaughan" team="DAL" position="QB" height="6-5" weight="235" dob="0000-00-00" college="West Texas A&amp;M"/>
 	<Player playerId="105" active="1" jersey="1" lname="Vick" fname="Michael" displayName="Michael Vick" team="NYJ" position="QB" height="6-0" weight="215" dob="1980-06-26" college="Virginia Tech"/>
 	<Player playerId="107" active="1" jersey="9" lname="Wallace" fname="Seneca" displayName="Seneca Wallace" team="GB" position="QB" height="5-11" weight="205" dob="0000-00-00" college="Iowa State"/>
 	<Player playerId="1174" active="1" jersey="14" lname="Webb" fname="Joe" displayName="Joe Webb" team="CAR" position="QB" height="6-4" weight="230" dob="1986-11-14" college="Alabama-Birmingham"/>

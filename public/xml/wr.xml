@@ -8,11 +8,11 @@
 <Player playerId="1338" active="1" jersey="16" lname="Ajirotutu" fname="Seyi" displayName="Seyi Ajirotutu" team="PHI" position="WR" height="6-3" weight="215" dob="1987-06-12" college="Fresno State"/>
 <Player playerId="2778" active="1" jersey="5" lname="Alford" fname="Mario" displayName="Mario Alford" team="CIN" position="WR" height="5-8" weight="180" dob="0000-00-00" college="West Virginia"/>
 <Player playerId="2215" active="1" jersey="13" lname="Allen" fname="Keenan" displayName="Keenan Allen" team="SD" position="WR" height="6-2" weight="211" dob="0000-00-00" college="California"/>
-<Player playerId="2514" active="1" jersey="3" lname="Allen" fname="Torrence" displayName="Torrence Allen" team="SD" position="WR" height="6-0" weight="183" dob="0000-00-00" college="West Texas A&M"/>
+<Player playerId="2514" active="1" jersey="3" lname="Allen" fname="Torrence" displayName="Torrence Allen" team="SD" position="WR" height="6-0" weight="183" dob="0000-00-00" college="West Texas A&amp;M"/>
 <Player playerId="323" active="1" jersey="80" lname="Amendola" fname="Danny" displayName="Danny Amendola" team="NE" position="WR" height="5-11" weight="195" dob="1985-11-02" college="Texas Tech"/>
 <Player playerId="2833" active="1" jersey="0" lname="Anderson" fname="Dres" displayName="Dres Anderson" team="SF" position="WR" height="6-1" weight="187" dob="0000-00-00" college="--"/>
 <Player playerId="2691" active="1" jersey="4" lname="Anthony" fname="Deon" displayName="Deon Anthony" team="KC" position="WR" height="6-0" weight="214" dob="0000-00-00" college="Troy"/>
-<Player playerId="325" active="1" jersey="86" lname="Armstrong" fname="Anthony" displayName="Anthony Armstrong" team="CLE" position="WR" height="5-10" weight="185" dob="0000-00-00" college="West Texas A&M"/>
+<Player playerId="325" active="1" jersey="86" lname="Armstrong" fname="Anthony" displayName="Anthony Armstrong" team="CLE" position="WR" height="5-10" weight="185" dob="0000-00-00" college="West Texas A&amp;M"/>
 <Player playerId="328" active="1" jersey="19" lname="Austin" fname="Miles" displayName="Miles Austin" team="PHI" position="WR" height="6-2" weight="215" dob="1984-06-30" college="Monmouth (N.J.)"/>
 <Player playerId="2257" active="1" jersey="11" lname="Austin" fname="Tavon" displayName="Tavon Austin" team="STL" position="WR" height="5-8" weight="176" dob="0000-00-00" college="West Virginia"/>
 <Player playerId="329" active="1" jersey="81" lname="Avant" fname="Jason" displayName="Jason Avant" team="KC" position="WR" height="6-0" weight="210" dob="1983-04-20" college="Michigan"/>
@@ -137,10 +137,10 @@
 <Player playerId="1150" active="1" jersey="80" lname="Edwards" fname="Armanti" displayName="Armanti Edwards" team="CHI" position="WR" height="5-11" weight="190" dob="1988-03-08" college="Appalachian State"/>
 <Player playerId="1903" active="1" jersey="83" lname="Edwards" fname="Patrick" displayName="Patrick Edwards" team="DET" position="WR" height="5-9" weight="175" dob="0000-00-00" college="Houston"/>
 <Player playerId="2532" active="1" jersey="10" lname="Ellington" fname="Bruce" displayName="Bruce Ellington" team="SF" position="WR" height="5-9" weight="197" dob="0000-00-00" college="South Carolina"/>
-<Player playerId="1949" active="1" jersey="18" lname="Elliott" fname="Kevin" displayName="Kevin Elliott" team="BUF" position="WR" height="6-3" weight="205" dob="0000-00-00" college="Florida A&M"/>
+<Player playerId="1949" active="1" jersey="18" lname="Elliott" fname="Kevin" displayName="Kevin Elliott" team="BUF" position="WR" height="6-3" weight="205" dob="0000-00-00" college="Florida A&amp;M"/>
 <Player playerId="2451" active="1" jersey="82" lname="Enunwa" fname="Quincy" displayName="Quincy Enunwa" team="NYJ" position="WR" height="6-2" weight="225" dob="0000-00-00" college="Nebraska"/>
 <Player playerId="2452" active="1" jersey="81" lname="Evans" fname="Shaquelle" displayName="Shaquelle Evans" team="NYJ" position="WR" height="6-1" weight="213" dob="0000-00-00" college="UCLA"/>
-<Player playerId="2677" active="1" jersey="13" lname="Evans" fname="Mike" displayName="Mike Evans" team="TB" position="WR" height="6-5" weight="231" dob="0000-00-00" college="Texas A&M"/>
+<Player playerId="2677" active="1" jersey="13" lname="Evans" fname="Mike" displayName="Mike Evans" team="TB" position="WR" height="6-5" weight="231" dob="0000-00-00" college="Texas A&amp;M"/>
 <Player playerId="394" active="1" jersey="11" lname="Fitzgerald" fname="Larry" displayName="Larry Fitzgerald" team="ARI" position="WR" height="6-3" weight="218" dob="1983-08-31" college="Pittsburgh"/>
 <Player playerId="395" active="1" jersey="80" lname="Floyd" fname="Malcom" displayName="Malcom Floyd" team="SD" position="WR" height="6-5" weight="225" dob="1981-09-08" college="Wyoming"/>
 <Player playerId="1836" active="1" jersey="15" lname="Floyd" fname="Michael" displayName="Michael Floyd" team="ARI" position="WR" height="6-3" weight="225" dob="0000-00-00" college="Notre Dame"/>
@@ -162,7 +162,7 @@
 <Player playerId="406" active="1" jersey="19" lname="Ginn Jr." fname="Ted" displayName="Ted Ginn Jr." team="CAR" position="WR" height="5-11" weight="185" dob="0000-00-00" college="Ohio State"/>
 <Player playerId="1859" active="1" jersey="13" lname="Givens" fname="Chris" displayName="Chris Givens" team="STL" position="WR" height="6-0" weight="203" dob="0000-00-00" college="Wake Forest"/>
 <Player playerId="2072" active="1" jersey="0" lname="Givens" fname="Chris" displayName="Chris Givens" team="NO" position="WR" height="6-2" weight="203" dob="0000-00-00" college="Miami (Ohio)"/>
-<Player playerId="2047" active="1" jersey="10" lname="Golden" fname="Brittan" displayName="Brittan Golden" team="ARI" position="WR" height="5-11" weight="186" dob="0000-00-00" college="West Texas A&M"/>
+<Player playerId="2047" active="1" jersey="10" lname="Golden" fname="Brittan" displayName="Brittan Golden" team="ARI" position="WR" height="5-11" weight="186" dob="0000-00-00" college="West Texas A&amp;M"/>
 <Player playerId="2821" active="1" jersey="0" lname="Goodley" fname="Antwan" displayName="Antwan Goodley" team="DAL" position="WR" height="5-10" weight="209" dob="0000-00-00" college="--"/>
 <Player playerId="2118" active="1" jersey="88" lname="Goodwin" fname="Marquise" displayName="Marquise Goodwin" team="BUF" position="WR" height="5-9" weight="179" dob="0000-00-00" college="Texas"/>
 <Player playerId="2700" active="1" jersey="18" lname="Goodwin" fname="C.J." displayName="C.J. Goodwin" team="PIT" position="WR" height="6-3" weight="190" dob="0000-00-00" college="California (PA)"/>
@@ -189,7 +189,7 @@
 <Player playerId="2545" active="1" jersey="10" lname="Harris" fname="Jordan" displayName="Jordan Harris" team="STL" position="WR" height="6-2" weight="215" dob="0000-00-00" college="Bryant University"/>
 <Player playerId="2140" active="1" jersey="22" lname="Harrison" fname="Mark" displayName="Mark Harrison" team="KC" position="WR" height="6-3" weight="230" dob="0000-00-00" college="Rutgers"/>
 <Player playerId="839" active="1" jersey="0" lname="Hartline" fname="Brian" displayName="Brian Hartline" team="CLE" position="WR" height="6-2" weight="200" dob="1986-11-22" college="Ohio State"/>
-<Player playerId="2360" active="1" jersey="0" lname="Harvey" fname="Travis" displayName="Travis Harvey" team="ARI" position="WR" height="6-2" weight="185" dob="0000-00-00" college="Florida A&M"/>
+<Player playerId="2360" active="1" jersey="0" lname="Harvey" fname="Travis" displayName="Travis Harvey" team="ARI" position="WR" height="6-2" weight="185" dob="0000-00-00" college="Florida A&amp;M"/>
 <Player playerId="840" active="1" jersey="18" lname="Harvin" fname="Percy" displayName="Percy Harvin" team="BUF" position="WR" height="5-11" weight="184" dob="1988-05-28" college="Florida"/>
 <Player playerId="2516" active="1" jersey="7" lname="Hatfield" fname="Micah" displayName="Micah Hatfield" team="SD" position="WR" height="6-1" weight="182" dob="0000-00-00" college="Oregon State"/>
 <Player playerId="420" active="1" jersey="15" lname="Hawkins" fname="Lavelle" displayName="Lavelle Hawkins" team="TB" position="WR" height="5-11" weight="194" dob="0000-00-00" college="California"/>
@@ -261,7 +261,7 @@
 <Player playerId="2818" active="1" jersey="0" lname="King" fname="Nigel" displayName="Nigel King" team="MIA" position="WR" height="6-3" weight="210" dob="0000-00-00" college="--"/>
 <Player playerId="2569" active="1" jersey="95" lname="Krause" fname="Jonathan" displayName="Jonathan Krause" team="NE" position="WR" height="5-11" weight="190" dob="0000-00-00" college="Vanderbilt"/>
 <Player playerId="2845" active="1" jersey="0" lname="Kumerow" fname="Jake" displayName="Jake Kumerow" team="CIN" position="WR" height="6-5" weight="195" dob="0000-00-00" college="--"/>
-<Player playerId="2612" active="1" jersey="19" lname="Labhart" fname="Travis" displayName="Travis Labhart" team="HOU" position="WR" height="5-9" weight="182" dob="0000-00-00" college="Texas A&M"/>
+<Player playerId="2612" active="1" jersey="19" lname="Labhart" fname="Travis" displayName="Travis Labhart" team="HOU" position="WR" height="5-9" weight="182" dob="0000-00-00" college="Texas A&amp;M"/>
 <Player playerId="1159" active="1" jersey="19" lname="LaFell" fname="Brandon" displayName="Brandon LaFell" team="NE" position="WR" height="6-3" weight="210" dob="1986-11-04" college="LSU"/>
 <Player playerId="2437" active="1" jersey="14" lname="Landry" fname="Jarvis" displayName="Jarvis Landry" team="MIA" position="WR" height="5-11" weight="202" dob="0000-00-00" college="LSU"/>
 <Player playerId="2621" active="1" jersey="85" lname="Lankford" fname="Ryan" displayName="Ryan Lankford" team="IND" position="WR" height="5-11" weight="163" dob="0000-00-00" college="Illinois"/>
@@ -293,7 +293,7 @@
 <Player playerId="1765" active="1" jersey="18" lname="Matthews" fname="Rishard" displayName="Rishard Matthews" team="MIA" position="WR" height="6-0" weight="215" dob="0000-00-00" college="Nevada"/>
 <Player playerId="2471" active="1" jersey="81" lname="Matthews" fname="Jordan" displayName="Jordan Matthews" team="PHI" position="WR" height="6-3" weight="212" dob="0000-00-00" college="Vanderbilt"/>
 <Player playerId="2782" active="1" jersey="1" lname="Mayle" fname="Vince" displayName="Vince Mayle" team="CLE" position="WR" height="6-2" weight="224" dob="0000-00-00" college="Washington State"/>
-<Player playerId="2805" active="1" jersey="3" lname="McBride" fname="Tre" displayName="Tre McBride" team="TEN" position="WR" height="6-0" weight="210" dob="0000-00-00" college="William & Mary"/>
+<Player playerId="2805" active="1" jersey="3" lname="McBride" fname="Tre" displayName="Tre McBride" team="TEN" position="WR" height="6-0" weight="210" dob="0000-00-00" college="William &amp; Mary"/>
 <Player playerId="2613" active="1" jersey="18" lname="McClung" fname="Anthony" displayName="Anthony McClung" team="HOU" position="WR" height="6-0" weight="177" dob="0000-00-00" college="Cincinnati"/>
 <Player playerId="2706" active="1" jersey="15" lname="McDonald" fname="Tyler" displayName="Tyler McDonald" team="MIA" position="WR" height="6-3" weight="190" dob="0000-00-00" college="South Carolina"/>
 <Player playerId="2205" active="1" jersey="0" lname="McGuffie" fname="Sam" displayName="Sam McGuffie" team="NE" position="WR" height="5-10" weight="200" dob="0000-00-00" college="Rice"/>
@@ -329,7 +329,7 @@
 <Player playerId="985" active="1" jersey="11" lname="Norwood" fname="Jordan" displayName="Jordan Norwood" team="DEN" position="WR" height="5-11" weight="180" dob="0000-00-00" college="Penn State"/>
 <Player playerId="2536" active="1" jersey="81" lname="Norwood" fname="Kevin" displayName="Kevin Norwood" team="SEA" position="WR" height="6-2" weight="199" dob="0000-00-00" college="Alabama"/>
 <Player playerId="2851" active="1" jersey="42" lname="Norwood" fname="Levi" displayName="Levi Norwood" team="CHI" position="WR" height="6-2" weight="200" dob="0000-00-00" college="--"/>
-<Player playerId="2340" active="1" jersey="17" lname="Nwachukwu" fname="Uzoma" displayName="Uzoma Nwachukwu" team="HOU" position="WR" height="5-11" weight="198" dob="0000-00-00" college="Texas A&M"/>
+<Player playerId="2340" active="1" jersey="17" lname="Nwachukwu" fname="Uzoma" displayName="Uzoma Nwachukwu" team="HOU" position="WR" height="5-11" weight="198" dob="0000-00-00" college="Texas A&amp;M"/>
 <Player playerId="504" active="1" jersey="15" lname="Obomanu" fname="Ben" displayName="Ben Obomanu" team="NYJ" position="WR" height="6-1" weight="204" dob="0000-00-00" college="Auburn"/>
 <Player playerId="987" active="1" jersey="15" lname="Ogletree" fname="Kevin" displayName="Kevin Ogletree" team="NYG" position="WR" height="6-1" weight="195" dob="1987-08-05" college="Virginia"/>
 <Player playerId="989" active="1" jersey="0" lname="Orton" fname="Greg" displayName="Greg Orton" team="NE" position="WR" height="6-3" weight="199" dob="0000-00-00" college="Purdue"/>
@@ -402,7 +402,7 @@
 <Player playerId="1457" active="1" jersey="18" lname="Shorts III" fname="Cecil" displayName="Cecil Shorts III" team="HOU" position="WR" height="6-0" weight="202" dob="0000-00-00" college="Mount Union"/>
 <Player playerId="536" active="1" jersey="0" lname="Simpson" fname="Jerome" displayName="Jerome Simpson" team="SF" position="WR" height="6-2" weight="190" dob="1986-02-04" college="Coastal Carolina"/>
 <Player playerId="537" active="1" jersey="18" lname="Slater" fname="Matthew" displayName="Matthew Slater" team="NE" position="WR" height="6-0" weight="210" dob="1985-09-09" college="UCLA"/>
-<Player playerId="2702" active="1" jersey="9" lname="Slaughter" fname="Nathan" displayName="Nathan Slaughter" team="ARI" position="WR" height="5-10" weight="185" dob="0000-00-00" college="West Texas A&M"/>
+<Player playerId="2702" active="1" jersey="9" lname="Slaughter" fname="Nathan" displayName="Nathan Slaughter" team="ARI" position="WR" height="5-10" weight="185" dob="0000-00-00" college="West Texas A&amp;M"/>
 <Player playerId="2765" active="1" jersey="15" lname="Smelter" fname="DeAndre" displayName="DeAndre Smelter" team="SF" position="WR" height="6-2" weight="226" dob="0000-00-00" college="Georgia Tech"/>
 <Player playerId="538" active="1" jersey="16" lname="Smith" fname="Brad" displayName="Brad Smith" team="PHI" position="WR" height="6-2" weight="213" dob="1983-12-12" college="Missouri"/>
 <Player playerId="541" active="1" jersey="89" lname="Smith" fname="Steve" displayName="Steve Smith" team="BAL" position="WR" height="5-9" weight="195" dob="1979-05-12" college="Utah"/>
@@ -441,14 +441,14 @@
 <Player playerId="2658" active="1" jersey="87" lname="Thompson" fname="Tramaine" displayName="Tramaine Thompson" team="ATL" position="WR" height="5-8" weight="167" dob="0000-00-00" college="Kansas State"/>
 <Player playerId="1639" active="1" jersey="0" lname="Toliver" fname="Terrence" displayName="Terrence Toliver" team="CHI" position="WR" height="6-5" weight="204" dob="0000-00-00" college="LSU"/>
 <Player playerId="1978" active="1" jersey="88" lname="Toon" fname="Nick" displayName="Nick Toon" team="NO" position="WR" height="6-4" weight="218" dob="0000-00-00" college="Wisconsin"/>
-<Player playerId="1844" active="1" jersey="84" lname="Tyms" fname="Brian" displayName="Brian Tyms" team="NE" position="WR" height="6-3" weight="204" dob="0000-00-00" college="Florida A&M"/>
+<Player playerId="1844" active="1" jersey="84" lname="Tyms" fname="Brian" displayName="Brian Tyms" team="NE" position="WR" height="6-3" weight="204" dob="0000-00-00" college="Florida A&amp;M"/>
 <Player playerId="862" active="1" jersey="11" lname="Underwood" fname="Tiquan" displayName="Tiquan Underwood" team="CAR" position="WR" height="6-1" weight="185" dob="0000-00-00" college="Rutgers"/>
 <Player playerId="2687" active="1" jersey="81" lname="Van Hooser" fname="Wilson" displayName="Wilson Van Hooser" team="NE" position="WR" height="6-0" weight="195" dob="0000-00-00" college="Troy"/>
 <Player playerId="2426" active="1" jersey="13" lname="Vaughn" fname="Rahsaan" displayName="Rahsaan Vaughn" team="OAK" position="WR" height="6-1" weight="190" dob="0000-00-00" college="Oregon"/>
 <Player playerId="2248" active="1" jersey="19" lname="Veltung" fname="Justin" displayName="Justin Veltung" team="STL" position="WR" height="5-11" weight="182" dob="0000-00-00" college="Idaho"/>
 <Player playerId="2206" active="1" jersey="0" lname="Vernon" fname="Conner" displayName="Conner Vernon" team="CLE" position="WR" height="6-0" weight="200" dob="0000-00-00" college="Duke"/>
 <Player playerId="2320" active="1" jersey="11" lname="Walker" fname="Tyrone" displayName="Tyrone Walker" team="MIN" position="WR" height="5-10" weight="191" dob="0000-00-00" college="Illinois State"/>
-<Player playerId="2646" active="1" jersey="19" lname="Walker" fname="Derel" displayName="Derel Walker" team="TEN" position="WR" height="6-1" weight="188" dob="0000-00-00" college="Texas A&M"/>
+<Player playerId="2646" active="1" jersey="19" lname="Walker" fname="Derel" displayName="Derel Walker" team="TEN" position="WR" height="6-1" weight="188" dob="0000-00-00" college="Texas A&amp;M"/>
 <Player playerId="863" active="1" jersey="11" lname="Wallace" fname="Mike" displayName="Mike Wallace" team="MIN" position="WR" height="6-0" weight="200" dob="1986-08-01" college="Mississippi"/>
 <Player playerId="2775" active="1" jersey="88" lname="Waller" fname="Darren" displayName="Darren Waller" team="BAL" position="WR" height="6-6" weight="238" dob="0000-00-00" college="Georgia Tech"/>
 <Player playerId="567" active="1" jersey="87" lname="Walter" fname="Kevin" displayName="Kevin Walter" team="TEN" position="WR" height="6-3" weight="218" dob="0000-00-00" college="Eastern Michigan"/>

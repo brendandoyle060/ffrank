@@ -8,9 +8,9 @@
 <Player playerId="2859" active="1" jersey="27" lname="Brindza" fname="Kyle" displayName="Kyle Brindza" team="DET" position="K" height="6-1" weight="236" dob="0000-00-00" college="--"/>
 <Player playerId="741" active="1" jersey="3" lname="Brown" fname="Josh" displayName="Josh Brown" team="NYG" position="K" height="6-0" weight="202" dob="0000-00-00" college="Nebraska"/>
 <Player playerId="743" active="1" jersey="3" lname="Bryant" fname="Matt" displayName="Matt Bryant" team="ATL" position="K" height="5-9" weight="203" dob="1975-05-29" college="Baylor"/>
-<Player playerId="1930" active="1" jersey="4" lname="Bullock" fname="Randy" displayName="Randy Bullock" team="HOU" position="K" height="5-9" weight="206" dob="0000-00-00" college="Texas A&M"/>
+<Player playerId="1930" active="1" jersey="4" lname="Bullock" fname="Randy" displayName="Randy Bullock" team="HOU" position="K" height="5-9" weight="206" dob="0000-00-00" college="Texas A&amp;M"/>
 <Player playerId="745" active="1" jersey="2" lname="Carpenter" fname="Dan" displayName="Dan Carpenter" team="BUF" position="K" height="6-2" weight="228" dob="0000-00-00" college="Montana"/>
-<Player playerId="2704" active="1" jersey="0" lname="Castillo" fname="Sergio" displayName="Sergio Castillo" team="ATL" position="K" height="5-11" weight="195" dob="0000-00-00" college="West Texas A&M"/>
+<Player playerId="2704" active="1" jersey="0" lname="Castillo" fname="Sergio" displayName="Sergio Castillo" team="ATL" position="K" height="5-11" weight="195" dob="0000-00-00" college="West Texas A&amp;M"/>
 <Player playerId="2528" active="1" jersey="7" lname="Catanzaro" fname="Chandler" displayName="Chandler Catanzaro" team="ARI" position="K" height="6-1" weight="200" dob="0000-00-00" college="Clemson"/>
 <Player playerId="2649" active="1" jersey="6" lname="Coons" fname="Travis" displayName="Travis Coons" team="CLE" position="K" height="6-1" weight="194" dob="0000-00-00" college="Washington"/>
 <Player playerId="747" active="1" jersey="2" lname="Crosby" fname="Mason" displayName="Mason Crosby" team="GB" position="K" height="6-1" weight="207" dob="1984-09-03" college="Colorado"/>

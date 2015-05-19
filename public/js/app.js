@@ -14,7 +14,8 @@ app.config(function($routeProvider, $httpProvider) {
       .when('/profile', {
           templateUrl: 'views/profile/profile.html',
           // controller: 'ProfileCtrl',
-          controller: 'FFApiCtrl'
+          controller: 'FFApiCtrl',
+          controller: 'QbCtrl'
           //UNCOMMENT THIS CODE LATER - THIS IS DESIRED FUNCTIONALITY IN
           //  FINAL VERSION.
 

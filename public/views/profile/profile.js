@@ -84,19 +84,36 @@ app.controller('FFApiCtrl', function($scope, $http){
     // }
 });
 
-var myApp = angular.module('myApp', []);
+app.controller('QbCtrl', function($scope, $http){
+    console.log("QbCtrl entered");
 
-myApp.factory('Data', function () {
-  return { message: "I'm data from a service" }
+    var xmlhttp = new XMLHttpRequest();
+
+    // var filename = "../xml/" + position + ".xml";
+    var filename = "xml/qb.xml";
+
+    xmlhttp.open("GET", filename, false);
+    xmlhttp.send();
+    console.log("XMLHTTP");
+    console.log(xmlhttp);
+    console.log(typeof xmlhttp);
+    var xmlDoc = xmlhttp.responseXML; 
+    console.log("XMLDOC");
+    console.log(xmlDoc);
+    console.log(typeof xmlDoc);
+
+    var allPlayerObjects = xmlDoc.getElementsByTagName("Player");
+    var allPlayerNames = [];
+    var name = "";
+
+    for (i = 0; i < allPlayerObjects.length; i++) { 
+        name = allPlayerObjects[i].getAttribute("displayName");
+        console.log("player: " + name);
+        allPlayerNames.push(name);
+    }
+
+    $scope.qbList = allPlayerNames;
 });
-
-function FirstCtrl($scope, Data) {
-  $scope.data = Data;
-}
-
-function SecondCtrl($scope, Data) {
-  $scope.data = Data;
-}
 
 // var FFApiApp = angular.module('FFApiApp', []);
 

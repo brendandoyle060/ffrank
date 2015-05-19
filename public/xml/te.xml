@@ -14,7 +14,7 @@
 <Player playerId="600" active="1" jersey="82" lname="Barnidge" fname="Gary" displayName="Gary Barnidge" team="CLE" position="TE" height="6-6" weight="250" dob="0000-00-00" college="Louisville"/>
 <Player playerId="2547" active="1" jersey="82" lname="Bayer" fname="Alex" displayName="Alex Bayer" team="STL" position="TE" height="6-4" weight="258" dob="0000-00-00" college="Bowling Green State"/>
 <Player playerId="2767" active="1" jersey="10" lname="Bell" fname="Blake" displayName="Blake Bell" team="SF" position="TE" height="6-6" weight="252" dob="0000-00-00" college="Oklahoma"/>
-<Player playerId="602" active="1" jersey="83" lname="Bennett" fname="Martellus" displayName="Martellus Bennett" team="CHI" position="TE" height="6-6" weight="265" dob="1987-03-10" college="Texas A&M"/>
+<Player playerId="602" active="1" jersey="83" lname="Bennett" fname="Martellus" displayName="Martellus Bennett" team="CHI" position="TE" height="6-6" weight="265" dob="1987-03-10" college="Texas A&amp;M"/>
 <Player playerId="2576" active="1" jersey="87" lname="Blanchflower" fname="Rob" displayName="Rob Blanchflower" team="PIT" position="TE" height="6-4" weight="256" dob="0000-00-00" college="Massachusetts"/>
 <Player playerId="2483" active="1" jersey="83" lname="Bolser" fname="Ted" displayName="Ted Bolser" team="ARI" position="TE" height="6-5" weight="249" dob="0000-00-00" college="Indiana"/>
 <Player playerId="2080" active="1" jersey="0" lname="Bostick" fname="Brandon" displayName="Brandon Bostick" team="MIN" position="TE" height="6-3" weight="250" dob="0000-00-00" college="Newberry"/>
