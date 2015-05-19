@@ -126,7 +126,7 @@ function write_letters(listOfNames){
 
     for (var i = 0; i < listOfNames.length; i++) {
         var item = document.createElement("li");
-        item.innerHTML = listOfNames[i];
+        item.innerHTML = "<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"></span>" + listOfNames[i];
         items.appendChild(item);
     }
 

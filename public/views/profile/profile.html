@@ -26,8 +26,8 @@
 
         <style>
             .positional-rankings { list-style-type: none; margin-left: auto; margin-right: auto; padding: 5px; width: 85%; background-color: #d2d2d2; }
-            .positional-rankings li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; color:black; font-family: "Times New Roman", Times, serif; }
-            .positional-rankings li span { position: absolute; margin-left: -1.3em; }
+            .positional-rankings li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; color:black; font-family: "Times New Roman", Times, serif; background-color: white; }
+            .positional-rankings li span { position: absolute; margin-left: -1.3em;  }
             .player-position { list-style-type: none; padding: 0; margin: 0; }
             .player-lists { padding-top: 170px; }
             .col-md-4 { overflow-y: scroll; height: 300px; }
@@ -52,13 +52,6 @@
     </head>
 
     <body ng-app="FFApiApp"><!--Change back to PassportApp to make things work in future?-->
-
-        <div ng-controller="QbCtrl">
-
-            <!-- <h2>{{qbList}}</h2> -->
-
-        </div>
-
         <div class="profile-wrapper">
             <div class="site-wrapper-inner">
                 <div class="container">
@@ -93,7 +86,7 @@
                         <div class="col-md-4">
                             <h2>Quarterback</h2>
                             <div class="positional-rankings" id="qbUl">
-                                <ul ng-repeat="qb in quarterbacks.results" class="player-position">
+                                <ul class="player-position">
                                     {{allQBs}}
                                     <!-- <li class="ui-state-default">
                                         <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
