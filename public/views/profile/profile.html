@@ -55,7 +55,7 @@
 
         <div ng-controller="QbCtrl">
 
-            <h2>{{qbList}}</h2>
+            <!-- <h2>{{qbList}}</h2> -->
 
         </div>
 
@@ -92,12 +92,13 @@
                     <div class="row">
                         <div class="col-md-4">
                             <h2>Quarterback</h2>
-                            <div class="positional-rankings">
+                            <div class="positional-rankings" id="qbUl">
                                 <ul ng-repeat="qb in quarterbacks.results" class="player-position">
-                                    <li class="ui-state-default">
+                                    {{allQBs}}
+                                    <!-- <li class="ui-state-default">
                                         <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
                                         {{qb.first_name}} {{qb.last_name}}
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </div>
                         </div>

@@ -112,37 +112,23 @@ app.controller('QbCtrl', function($scope, $http){
         allPlayerNames.push(name);
     }
 
-    $scope.qbList = allPlayerNames;
+    // $scope.qbList = allPlayerNames;
+
+
+    $scope.allQBs = write_letters(allPlayerNames);
+
+
 });
 
-// var FFApiApp = angular.module('FFApiApp', []);
 
-// FFApiApp.factory('Data', function () {
-//     return { message: "I'm data from a service" }
-// });
+function write_letters(listOfNames){
+    var items = document.getElementById("qbUl");
 
-// function parseXML($scope, Data) {
+    for (var i = 0; i < listOfNames.length; i++) {
+        var item = document.createElement("li");
+        item.innerHTML = listOfNames[i];
+        items.appendChild(item);
+    }
 
-//     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-//         xmlhttp=new XMLHttpRequest();
-//     }
-//     else {// code for IE6, IE5
-//         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-//     }
+}
 
-//     var filename = "../xml/qb.xml";
-
-//     xmlhttp.open("GET", filename, false);
-//     xmlhttp.send();
-//     xmlDoc=xmlhttp.responseXML; 
-
-//     var allPlayerObjects = xmlDoc.getElementsByTagName("Player");
-//     var allPlayerNames = [];
-
-//     for (i = 0; i < allPlayers.length; i++) { 
-//         console.log("player: " + allPlayers[i].getAttribute("displayName"));
-//         allPlayerNames.push(allPlayers[i].getAttribute("displayName"));
-//     }
-
-//     $scope.playersByPosition = allPlayerNames;
-// };
