@@ -40,11 +40,11 @@ app.controller('FFApiCtrl', function($scope, $http){
     //     $scope.kickers = response;
     // });
 
-    $http.jsonp(url + "K" + callback)
-    .success(function (response) {
-        console.log("FFApiCtrl k + " + response);
-        $scope.kickers = response;
-    });
+    // $http.jsonp(url + "K" + callback)
+    // .success(function (response) {
+    //     console.log("FFApiCtrl k + " + response);
+    //     $scope.kickers = response;
+    // });
 
     
 
@@ -83,3 +83,49 @@ app.controller('FFApiCtrl', function($scope, $http){
     //     $scope.user = user;
     // }
 });
+
+var myApp = angular.module('myApp', []);
+
+myApp.factory('Data', function () {
+  return { message: "I'm data from a service" }
+});
+
+function FirstCtrl($scope, Data) {
+  $scope.data = Data;
+}
+
+function SecondCtrl($scope, Data) {
+  $scope.data = Data;
+}
+
+// var FFApiApp = angular.module('FFApiApp', []);
+
+// FFApiApp.factory('Data', function () {
+//     return { message: "I'm data from a service" }
+// });
+
+// function parseXML($scope, Data) {
+
+//     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+//         xmlhttp=new XMLHttpRequest();
+//     }
+//     else {// code for IE6, IE5
+//         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+//     }
+
+//     var filename = "../xml/qb.xml";
+
+//     xmlhttp.open("GET", filename, false);
+//     xmlhttp.send();
+//     xmlDoc=xmlhttp.responseXML; 
+
+//     var allPlayerObjects = xmlDoc.getElementsByTagName("Player");
+//     var allPlayerNames = [];
+
+//     for (i = 0; i < allPlayers.length; i++) { 
+//         console.log("player: " + allPlayers[i].getAttribute("displayName"));
+//         allPlayerNames.push(allPlayers[i].getAttribute("displayName"));
+//     }
+
+//     $scope.playersByPosition = allPlayerNames;
+// };

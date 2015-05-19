@@ -6,6 +6,11 @@ app.config(function($routeProvider, $httpProvider) {
       .when('/home', {
           templateUrl: 'views/home/home.html'
       })
+      .when('/testview', {
+          templateUrl: 'views/testview/testview.html',
+          controller: 'FirstCtrl',
+          controller: 'SecondCtrl'
+      })
       .when('/profile', {
           templateUrl: 'views/profile/profile.html',
           // controller: 'ProfileCtrl',

@@ -49,6 +49,40 @@
             });
         </script>
 
+        <script>
+
+            // function parseXML(position) {
+            
+            //     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            //         xmlhttp=new XMLHttpRequest();
+            //     }
+            //     else {// code for IE6, IE5
+            //         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            //     }
+
+            //     var filename = "../xml/" + position + ".xml";
+
+            //     xmlhttp.open("GET", filename, false);
+            //     xmlhttp.send();
+            //     xmlDoc=xmlhttp.responseXML; 
+
+            //     document.write("<ul>");
+
+            //     var allPlayerObjects = xmlDoc.getElementsByTagName("Player");
+            //     var allPlayerNames = [];
+
+            //     for (i = 0; i < allPlayers.length; i++) { 
+            //         console.log("player: " + allPlayers[i].getAttribute("displayName"));
+            //         allPlayerNames.push(allPlayers[i].getAttribute("displayName"));
+            //     }
+
+            //     document.write("</ul>");
+
+            //     return allPlayerNames;
+            // };
+
+        </script>
+
     </head>
 
     <body ng-app="FFApiApp"><!--Change back to PassportApp to make things work in future?-->
@@ -80,89 +114,81 @@
                 </div>
 
 
-                <!-- {{runningbacks}}
-                {{widereceivers}}
-                {{tightends}}
-                {{defenses}}
-                {{kickers}}-->
+                <div ng-controller="parseXML" class="container player-lists">
+                    <!-- <h2>{{playersByPosition}}</h2> -->
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h2>Quarterback</h2>
+                            <div class="positional-rankings">
+                                <ul ng-repeat="qb in quarterbacks.results" class="player-position">
+                                    <li class="ui-state-default">
+                                        <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+                                        {{qb.first_name}} {{qb.last_name}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h2>Running Back</h2>
+                            <div class="positional-rankings">
+                                <ul ng-repeat="rb in runningbacks.results" class="player-position">
+                                    <li class="ui-state-default">
+                                        <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+                                        {{rb.first_name}} {{rb.last_name}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h2>Wide Receiver</h2>
+                            <div class="positional-rankings">
+                                <ul ng-repeat="wr in widereceivers.results" class="player-position">
+                                    <li class="ui-state-default">
+                                        <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+                                        {{wr.first_name}} {{wr.last_name}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
 
-                <div class="container player-lists">
-                  <div class="row">
-                    <div class="col-md-4">
-                        <h2>Quarterback</h2>
-                        <div class="positional-rankings">
-                            <ul ng-repeat="qb in quarterbacks.results" class="player-position">
-                                <li class="ui-state-default">
-                                    <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-                                    {{qb.first_name}} {{qb.last_name}}
-                                </li>
-                            </ul>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h2>Tight End</h2>
+                            <div class="positional-rankings">
+                                <ul ng-repeat="te in tightends.results" class="player-position">
+                                    <li class="ui-state-default">
+                                        <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+                                        {{te.first_name}} {{te.last_name}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h2>Defense/Special Teams</h2>
+                            <div class="positional-rankings">
+                                <ul ng-repeat="dst in defenses.results" class="player-position">
+                                    <li class="ui-state-default">
+                                        <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+                                        {{dst.last_name}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h2>Kickers</h2>
+                            <div class="positional-rankings">
+                                <ul ng-repeat="k in kickers.results" class="player-position">
+                                    <li class="ui-state-default">
+                                        <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+                                        {{k.first_name}} {{k.last_name}}
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <h2>Running Back</h2>
-                        <div class="positional-rankings">
-                            <ul ng-repeat="rb in runningbacks.results" class="player-position">
-                                <li class="ui-state-default">
-                                    <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-                                    {{rb.first_name}} {{rb.last_name}}
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <h2>Wide Receiver</h2>
-                        <div class="positional-rankings">
-                            <ul ng-repeat="wr in widereceivers.results" class="player-position">
-                                <li class="ui-state-default">
-                                    <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-                                    {{wr.first_name}} {{wr.last_name}}
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-md-4">
-                        <h2>Tight End</h2>
-                        <div class="positional-rankings">
-                            <ul ng-repeat="te in tightends.results" class="player-position">
-                                <li class="ui-state-default">
-                                    <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-                                    {{te.first_name}} {{te.last_name}}
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <h2>Defense/Special Teams</h2>
-                        <div class="positional-rankings">
-                            <ul ng-repeat="dst in defenses.results" class="player-position">
-                                <li class="ui-state-default">
-                                    <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-                                    {{dst.last_name}}
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <h2>Kickers</h2>
-                        <div class="positional-rankings">
-                            <ul ng-repeat="k in kickers.results" class="player-position">
-                                <li class="ui-state-default">
-                                    <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-                                    {{k.first_name}} {{k.last_name}}
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                  </div>
-
-
-            </div> 
+                </div> 
+            </div>
         </div>
     </body>
-
-
 </html>
