@@ -25,7 +25,7 @@
         <link href="../css/jquery-ui-1.11.4/jquery-ui.theme.min.css" rel="stylesheet">
 
         <style>
-            .positional-rankings { list-style-type: none; margin-left: auto; margin-right: auto; padding: 5px; width: 85%; background-color: #d2d2d2; }
+            .positional-rankings { list-style-type: none; margin-left: auto; margin-right: auto; padding: 5px; width: 85%; background-color: #696969; }
             .positional-rankings li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; color:black; font-family: "Times New Roman", Times, serif; background-color: white; }
             .positional-rankings li span { position: absolute; margin-left: -1.3em;  }
             .player-position { list-style-type: none; padding: 0; margin: 0; }
@@ -85,35 +85,25 @@
                     <div class="row">
                         <div class="col-md-4">
                             <h2>Quarterback</h2>
-                            <div class="positional-rankings" id="qbUl">
+                            <div class="positional-rankings" id="qb">
                                 <ul class="player-position">
-                                    {{allQBs}}
-                                    <!-- <li class="ui-state-default">
-                                        <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-                                        {{qb.first_name}} {{qb.last_name}}
-                                    </li> -->
+                                    {{qb}}
                                 </ul>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <h2>Running Back</h2>
-                            <div class="positional-rankings">
-                                <ul ng-repeat="rb in runningbacks.results" class="player-position">
-                                    <li class="ui-state-default">
-                                        <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-                                        {{rb.first_name}} {{rb.last_name}}
-                                    </li>
+                            <div class="positional-rankings" id="rb">
+                                <ul class="player-position">
+                                    {{rb}}
                                 </ul>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <h2>Wide Receiver</h2>
-                            <div class="positional-rankings">
-                                <ul ng-repeat="wr in widereceivers.results" class="player-position">
-                                    <li class="ui-state-default">
-                                        <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-                                        {{wr.first_name}} {{wr.last_name}}
-                                    </li>
+                            <div class="positional-rankings" id="wr">
+                                <ul class="player-position">
+                                    {{wr}}
                                 </ul>
                             </div>
                         </div>
@@ -122,34 +112,25 @@
                     <div class="row">
                         <div class="col-md-4">
                             <h2>Tight End</h2>
-                            <div class="positional-rankings">
-                                <ul ng-repeat="te in tightends.results" class="player-position">
-                                    <li class="ui-state-default">
-                                        <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-                                        {{te.first_name}} {{te.last_name}}
-                                    </li>
+                            <div class="positional-rankings" id="te">
+                                <ul class="player-position">
+                                    {{te}}
                                 </ul>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <h2>Defense/Special Teams</h2>
-                            <div class="positional-rankings">
-                                <ul ng-repeat="dst in defenses.results" class="player-position">
-                                    <li class="ui-state-default">
-                                        <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-                                        {{dst.last_name}}
-                                    </li>
+                            <div class="positional-rankings" id="def">
+                                <ul class="player-position">
+                                    {{def}}
                                 </ul>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <h2>Kickers</h2>
-                            <div class="positional-rankings">
-                                <ul ng-repeat="k in kickers.results" class="player-position">
-                                    <li class="ui-state-default">
-                                        <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-                                        {{k.first_name}} {{k.last_name}}
-                                    </li>
+                            <div class="positional-rankings" id="k">
+                                <ul class="player-position">
+                                    {{k}}
                                 </ul>
                             </div>
                         </div>
