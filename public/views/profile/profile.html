@@ -46,7 +46,12 @@
         <script src="../css/jquery-ui-1.11.4/jquery-ui.js"></script>
         <script>
             $(function() {
-                $( ".positional-rankings" ).sortable();
+                $( ".positional-rankings" ).sortable({
+                    update: function() {
+                        console.log("UPDATE");
+                    }
+                });
+                $( ".positional-rankings" ).disableSelection();
             });
         </script>
 
