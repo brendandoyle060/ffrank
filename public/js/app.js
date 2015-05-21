@@ -11,12 +11,11 @@ app.config(function($routeProvider, $httpProvider) {
       })
       .when('/profile', {
           templateUrl: 'views/profile/profile.html',
-          // controller: 'ProfileCtrl',
           controller: 'FFApiCtrl',
           controller: 'PlayerCtrl',
-          // resolve: {
-          //     loggedin: checkLoggedin
-          // }
+          resolve: {
+              loggedin: checkLoggedin
+          }
       })
       .when('/search', {
           templateUrl: 'views/search/search.html',

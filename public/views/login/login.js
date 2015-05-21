@@ -3,7 +3,7 @@ app.controller("LoginCtrl", function($scope, $http, $location, $rootScope){
         console.log(user);
         $http.post("/login", user)
         .success(function(response){
-            console.log(response);
+            console.log("loginctrl: " + response);
             $rootScope.currentUser = response;
             $location.url("/profile");
         });
