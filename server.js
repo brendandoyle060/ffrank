@@ -12,13 +12,30 @@ var db = process.env.OPENSHIFT_MONGODB_DB_URL || "mongodb://localhost/test";
 var UserSchema = new mongoose.Schema({
     username: String,
     password: String,
-    firstName: String,
-    lastName: String,
     email: String,
-    roles: [String]
+    favorites: [String],
+    qbs: [String],
+    rbs: [String],
+    wrs: [String],
+    tes: [String],
+    defs: [String],
+    ks: [String]
+
 });
 
 var UserModel = mongoose.model('UserModel', UserSchema);
+
+// find all
+// UserModel.find(function(err, docs) {
+//     console.log(docs);
+// });
+
+// find by username
+
+// UserModel.find({username: 'q'}, function(err, docs) {
+//     console.log(docs);
+// });
+
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
@@ -104,6 +121,22 @@ app.get("/rest/user", auth, function(req, res)
     UserModel.find(function(err, users)
     {
         res.json(users);
+    });
+});
+
+app.get("/usermodels", auth, function(req, res)
+{
+    UserModel.find(function(err, docs) {
+        console.log(docs);
+        res.json(docs);
+    });
+});
+
+app.get("/usermodels/:username", auth, function(req, res)
+{
+    UserModel.find({username: req.params.username}, function(err, doc) {
+        console.log(doc);
+        res.json(doc);
     });
 });
 
