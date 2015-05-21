@@ -99,6 +99,7 @@ function(username, password, done)
     console.log("username: " + username + " password: " + password);
     if(username == password)//different than in class
         //29 minutes into PassportJS video
+        console.log("Login success!");  
     {
         return done(null, {username: username, password: password});
     }

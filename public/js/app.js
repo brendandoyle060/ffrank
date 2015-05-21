@@ -7,18 +7,13 @@ app.config(function($routeProvider, $httpProvider) {
           templateUrl: 'views/home/home.html'
       })
       .when('/testview', {
-          templateUrl: 'views/testview/testview.html',
-          controller: 'FirstCtrl',
-          controller: 'SecondCtrl'
+          templateUrl: 'views/testview/testview.html'
       })
       .when('/profile', {
           templateUrl: 'views/profile/profile.html',
           // controller: 'ProfileCtrl',
           controller: 'FFApiCtrl',
-          controller: 'QbCtrl'
-          //UNCOMMENT THIS CODE LATER - THIS IS DESIRED FUNCTIONALITY IN
-          //  FINAL VERSION.
-
+          controller: 'PlayerCtrl',
           // resolve: {
           //     loggedin: checkLoggedin
           // }

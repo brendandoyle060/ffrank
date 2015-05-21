@@ -38,8 +38,8 @@ app.controller('FFApiCtrl', function($scope, $http){
     // }
 });
 
-app.controller('QbCtrl', function($scope, $http){
-    console.log("QbCtrl entered");
+app.controller('PlayerCtrl', function($scope, $http){
+    console.log("PlayerCtrl entered");
 
     var positions = ["qb", "rb", "wr", "te", "def", "k"];
     var arraysArray = [];
@@ -67,7 +67,7 @@ app.controller('QbCtrl', function($scope, $http){
 
         for (i = 0; i < allPlayerObjects.length; i++) { 
             name = allPlayerObjects[i].getAttribute("displayName");
-            console.log("player: " + name);
+            // console.log("player: " + name);
             allPlayerNames.push(name);
         }
 
