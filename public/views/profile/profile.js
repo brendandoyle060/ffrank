@@ -56,4 +56,3 @@ function write_letters(pos, listOfNames){
     }
 
 }
-

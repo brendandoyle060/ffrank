@@ -140,6 +140,15 @@ app.get("/usermodels/:username", auth, function(req, res)
     });
 });
 
+var getUser = function(uname) {
+    app.get("/usermodels/:" + uname, auth, function(req, res) {
+        UserModel.find({username: req.params.uname}, function(err, doc) {
+            console.log(res.json(doc));
+            return res.json(doc);
+        });
+    });
+};
+
 app.delete("/rest/user/:id", auth, function(req, res){
     UserModel.findById(req.params.id, function(err, user){
         user.remove(function(err, count){

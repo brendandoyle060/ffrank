@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>About Fantasy Football Rankings</title>
+    <title>FFRank Search</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -42,11 +42,12 @@
             </div>
           </div>
 
-          <div class="inner cover">
-            <h1 class="cover-heading">About MyFantasyRankings</h1>
-            {{currentUser}}
+          <div class="inner cover darkened">
+            <h1 class="cover-heading">Search</h1>
+            <h2>{{currentUser.username}}</h2>
             <hr/>
-            <p class="lead">MyFantasyRankings was created by Brendan Doyle as his final project in a Web Development course at Northeastern University, in the Spring semester of 2015.</p>
+            <input ng-model="user.username" type="text" id="inputUsername" class="form-control" placeholder="Search by Username" required autofocus>
+            <button ng-click="search(user)" class="btn btn-lg btn-primary btn-block" type="submit">Search</button>
           </div>
 
           <div class="mastfoot">

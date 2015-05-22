@@ -11,7 +11,6 @@ app.config(function($routeProvider, $httpProvider) {
       })
       .when('/profile', {
           templateUrl: 'views/profile/profile.html',
-          controller: 'FFApiCtrl',
           controller: 'PlayerCtrl',
           resolve: {
               loggedin: checkLoggedin
@@ -19,7 +18,7 @@ app.config(function($routeProvider, $httpProvider) {
       })
       .when('/search', {
           templateUrl: 'views/search/search.html',
-          // controller: 'SearchCtrl' //DOES NOT NEED CONTROLLER YET
+          controller: 'SearchCtrl' 
       })
       .when('/about', {
           templateUrl: 'views/about/about.html',
@@ -63,6 +62,7 @@ var checkLoggedin = function($q, $timeout, $http, $location, $rootScope)
     
     return deferred.promise;
 };
+
 
 app.controller("NavCtrl", function($scope, $http, $location, $rootScope){
     console.log("app.js app.controller");
