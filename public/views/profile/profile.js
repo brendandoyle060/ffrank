@@ -56,3 +56,7 @@ function write_letters(pos, listOfNames){
     }
 
 }
+
+function open_currentuser_profile() {
+    location.href = "ffrank-bdoyle.rhcloud.com/profile/" + $rootscope.currentUser.username;
+}

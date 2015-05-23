@@ -19,7 +19,8 @@ var UserSchema = new mongoose.Schema({
     wrs: [String],
     tes: [String],
     defs: [String],
-    ks: [String]
+    ks: [String],
+    newAcct: Boolean
 
 });
 

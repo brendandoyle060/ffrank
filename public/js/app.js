@@ -16,6 +16,13 @@ app.config(function($routeProvider, $httpProvider) {
               loggedin: checkLoggedin
           }
       })
+      .when('/profile/:username', {
+          templateUrl: 'views/userprofile/userprofile.html',
+          controller: 'UserCtrl',
+          // resolve: {
+          //     loggedin: checkLoggedin
+          // }
+      })
       .when('/search', {
           templateUrl: 'views/search/search.html',
           controller: 'SearchCtrl' 
