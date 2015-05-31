@@ -54,7 +54,6 @@ var checkLoggedin = function($q, $timeout, $http, $location, $rootScope)
         // User is Authenticated
         if (user !== '0')
         {
-            console.log("CHECKLOGGEDIN currentUser.qbs: " + $rootScope.currentUser.qbs);
             console.log("CHECKLOGGEDIN user.qbs: " + user.qbs);
             $rootScope.currentUser = user;
             console.log("CHECKLOGGEDIN currentUser.qbs: " + $rootScope.currentUser.qbs);
