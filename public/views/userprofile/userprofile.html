@@ -29,8 +29,8 @@
             .positional-rankings li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; color:black; font-family: "Times New Roman", Times, serif; background-color: white; }
             .positional-rankings li span { position: absolute; margin-left: -1.3em;  }
             .player-position { list-style-type: none; padding: 0; margin: 0; }
-            .player-lists { padding-top: 60px; padding-left: 90px; padding-right: 90px; }
-            .col-md-6 { overflow-y: scroll; height: 300px; }
+            .player-lists { padding-top: 170px; }
+            .col-md-4 { overflow-y: scroll; height: 300px; }
             html { position: relative; min-height: 100%; }
             body { margin-bottom: 60px; }
             .footer { position: fixed; bottom: 0; width: 100%; height: 60px; background-color: blue; }
@@ -47,25 +47,18 @@
         <script src="../css/jquery-ui-1.11.4/jquery-ui.js"></script>
         <script>
             $(function() {
-                $( ".player-position" ).sortable({
+                $( ".positional-rankings" ).sortable({
                     update: function() {
-                        // console.log("BEFORE CALL UPDATELISTS");
-                        // updateLists();
-
-                        // console.log("BEFORE CALL UPDATE_LISTS");
-                        // update_lists();
-
-                        // console.log("BEFORE CALL UPDATE");
-                        // update();
+                        console.log("UPDATE");
                     }
                 });
-                $( ".player-position" ).disableSelection();
+                $( ".positional-rankings" ).disableSelection();
             });
         </script>
 
     </head>
 
-    <body ng-app="FFApiApp">
+    <body ng-app="FFApiApp"><!--Change back to PassportApp to make things work in future?-->
         <div class="profile-wrapper">
             <div class="site-wrapper-inner">
                 <div class="container">
@@ -86,18 +79,7 @@
                                     <!-- <ul class="nav navbar-nav navbar-right"> -->
                                     <li ng-show="currentUser" ng-click="logout()"><a href="#/home">Logout</a></li>
                                     <!-- </ul> -->
-                                    <!-- <li>
-                                        <form class="navbar-form" ng-show="!currentUser">
-                                            <div class="form-group">
-                                                <input ng-model="username" type="text" placeholder="Username" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <input ng-model="password" type="password" placeholder="Password" class="form-control">
-                                            </div>
-                                            <button ng-click="login()" type="button" class="btn btn-success">Sign in</button>
-                                            
-                                        </form>
-                                    </li> -->
+
 
                                 </ul>
                             </nav>
@@ -108,86 +90,66 @@
 
                 <div class="random">
                     <h3>{{currentUser.username}}</h3>
-                    <button ng-click="updateLists(currentUser)" type="button" class="btn btn-lg btn-success pull-right" type="submit">Save Lists</button>
+                    <h3>{{otherUser.username}}</h3>
+                    <button ng-click="addToFavorites(user.username)" type="button" class="btn btn-lg btn-warning pull-right">Add {{otherUser.username}} to Favorites</button>
+                     <!-- Inject username into button? i.e. Add {{username}} to Favorites  -->
                 </div>
 
 
-
-
-                <div class="container player-lists" onbeforeload="loadLists(currentUser)">
+                <div class="container player-lists">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <h2>Quarterback</h2>
                             <div class="positional-rankings" id="qb">
-                                <ol class="player-position" id="qbol">
-                                    <li class="ui-state-default" ng-repeat="q in currentUser.qbs track by $index">
-                                        {{q}}
-                                    </li>
-                                </ol>
+                                <ul class="player-position">
+                                    {{qb}}
+                                </ul>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <h2>Running Back</h2>
                             <div class="positional-rankings" id="rb">
-                                <ol class="player-position" id="rbol">
-                                    <li class="ui-state-default" ng-repeat="r in currentUser.rbs track by $index">
-                                        {{r}}
-                                    </li>
-                                </ol>
+                                <ul class="player-position">
+                                    {{rb}}
+                                </ul>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <h2>Wide Receiver</h2>
                             <div class="positional-rankings" id="wr">
-                                <ol class="player-position" id="wrol">
-                                    <li class="ui-state-default" ng-repeat="w in currentUser.wrs track by $index">
-                                        {{w}}
-                                    </li>
-                                </ol>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <h2>Tight End</h2>
-                            <div class="positional-rankings" id="te">
-                                <ol class="player-position" id="teol">
-                                    <li class="ui-state-default" ng-repeat="t in currentUser.tes track by $index">
-                                        {{t}}
-                                    </li>
-                                </ol>
+                                <ul class="player-position">
+                                    {{wr}}
+                                </ul>
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-md-6">
-                            <h2>Defense/Special Teams</h2>
-                            <div class="positional-rankings" id="def">
-                                <ol class="player-position" id="defol">
-                                    <li class="ui-state-default" ng-repeat="d in currentUser.defs track by $index">
-                                        {{d}}
-                                    </li>
-                                </ol>
+                        <div class="col-md-4">
+                            <h2>Tight End</h2>
+                            <div class="positional-rankings" id="te">
+                                <ul class="player-position">
+                                    {{te}}
+                                </ul>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
+                            <h2>Defense/Special Teams</h2>
+                            <div class="positional-rankings" id="def">
+                                <ul class="player-position">
+                                    {{def}}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
                             <h2>Kickers</h2>
                             <div class="positional-rankings" id="k">
-                                <ol class="player-position" id="kol">
-                                    <li class="ui-state-default" ng-repeat="k in currentUser.ks track by $index">
-                                        {{k}}
-                                    </li>
-                                </ol>
+                                <ul class="player-position">
+                                    {{k}}
+                                </ul>
                             </div>
                         </div>
                     </div>
-
-
-
-
-
                 </div> 
             </div>
         </div>

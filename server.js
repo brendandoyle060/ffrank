@@ -8,6 +8,7 @@ var cookieParser  = require('cookie-parser');
 var session       = require('express-session');
 var mongoose      = require('mongoose');
 var db = process.env.OPENSHIFT_MONGODB_DB_URL || "mongodb://localhost/test";
+var util = require('util');
 
 var UserSchema = new mongoose.Schema({
     username: String,
@@ -19,24 +20,10 @@ var UserSchema = new mongoose.Schema({
     wrs: [String],
     tes: [String],
     defs: [String],
-    ks: [String],
-    newAcct: Boolean
-
-});
+    ks: [String]
+}, {collection: "usermodels"});
 
 var UserModel = mongoose.model('UserModel', UserSchema);
-
-// find all
-// UserModel.find(function(err, docs) {
-//     console.log(docs);
-// });
-
-// find by username
-
-// UserModel.find({username: 'q'}, function(err, docs) {
-//     console.log(docs);
-// });
-
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
@@ -54,8 +41,12 @@ function(username, password, done)
 {
     UserModel.findOne({username: username, password: password}, function(err, user)
     {
-        if (err) { return done(err); }
-        if (!user) { return done(null, false); }
+        if (err) { 
+            return done(err); 
+        }
+        if (!user) { 
+            return done(null, false); 
+        }
         return done(null, user);
     })
 }));
@@ -69,13 +60,23 @@ passport.deserializeUser(function(user, done) {
 });
 
 app.post("/login", passport.authenticate('local'), function(req, res){
+    console.log("/LOGIN");
     var user = req.user;
-    console.log(user);
+    // console.log("SERVER /login: " + user);
     res.json(user);
 });
 
 app.get('/loggedin', function(req, res)
 {
+    console.log("/LOGGEDIN");
+    console.log("res: " + util.inspect(res, {showHidden: false, depth: null}));
+    res.send(req.isAuthenticated() ? req.user : '0');
+});
+
+app.get('/username', function(req, res)
+{
+    console.log("SERVER /username");
+    console.log("req: " + req);
     res.send(req.isAuthenticated() ? req.user : '0');
 });
     
@@ -88,10 +89,11 @@ app.post('/logout', function(req, res)
 app.post('/register', function(req, res)
 {
     var newUser = req.body;
-    newUser.roles = ['student'];
     UserModel.findOne({username: newUser.username}, function(err, user)
     {
-        if(err) { return next(err); }
+        if(err) { 
+            return next(err); 
+        }
         if(user)
         {
             res.json(null);
@@ -109,6 +111,7 @@ app.post('/register', function(req, res)
     });
 });
 
+
 var auth = function(req, res, next)
 {
     if (!req.isAuthenticated())
@@ -117,13 +120,13 @@ var auth = function(req, res, next)
         next();
 };
 
-app.get("/rest/user", auth, function(req, res)
-{
-    UserModel.find(function(err, users)
-    {
-        res.json(users);
-    });
-});
+// app.get("/rest/user", auth, function(req, res)
+// {
+//     UserModel.find(function(err, users)
+//     {
+//         res.json(users);
+//     });
+// });
 
 app.get("/usermodels", auth, function(req, res)
 {
@@ -133,63 +136,61 @@ app.get("/usermodels", auth, function(req, res)
     });
 });
 
-app.get("/usermodels/:username", auth, function(req, res)
+app.put("/usermodels/:username", auth, function(req, res)
 {
-    UserModel.find({username: req.params.username}, function(err, doc) {
-        console.log(doc);
-        res.json(doc);
+    var uName = req.params.username;
+    var newUser = req.body;
+    console.log("req.body.email: " + req.body.email);
+    // console.log("req.user: " + util.inspect(req.user, {showHidden: false, depth: null}));
+    console.log("SERVER USERMODELS/USERNAME user: " + uName)
+
+    console.log("SERVER /usermodels/:username");
+    console.log("newUser.qbs: " + newUser.qbs);
+    // res.json(doc);
+    UserModel.update({username: uName}, {$set : {qbs: newUser.qbs,
+                                                rbs: newUser.rbs,
+                                                wrs: newUser.wrs,
+                                                tes: newUser.tes,
+                                                defs: newUser.defs,
+                                                ks: newUser.ks}},
+                                                function(err, doc) {
+
+        // console.log(doc);
     });
 });
 
-var getUser = function(uname) {
-    app.get("/usermodels/:" + uname, auth, function(req, res) {
-        UserModel.find({username: req.params.uname}, function(err, doc) {
-            console.log(res.json(doc));
-            return res.json(doc);
-        });
-    });
-};
-
-app.delete("/rest/user/:id", auth, function(req, res){
-    UserModel.findById(req.params.id, function(err, user){
-        user.remove(function(err, count){
-            UserModel.find(function(err, users){
-                res.json(users);
-            });
-        });
-    });
-});
-
-app.put("/rest/user/:id", auth, function(req, res){
-    UserModel.findById(req.params.id, function(err, user){
-        user.update(req.body, function(err, count){
-            UserModel.find(function(err, users){
-                res.json(users);
-            });
-        });
-    });
-});
-
-app.post("/rest/user", auth, function(req, res){
-    UserModel.findOne({username: req.body.username}, function(err, user) {
-        if(user == null)
-        {
-            user = new UserModel(req.body);
-            user.save(function(err, user){
-                UserModel.find(function(err, users){
-                    res.json(users);
-                });
-            });
+app.get("/usermodels/:username", auth, function (req, res) {
+    UserModel.findOne({username: req.params.name}, function (err, user) {
+        if (err) {
+            return next(err);
         }
-        else
-        {
-            UserModel.find(function(err, users){
-                res.json(users);
-            });
+
+        if (user) {
+            res.json(user);
+        } else {
+            res.send(null);
         }
     });
 });
 
+// var getUser = function(uname) {
+//     app.get("/usermodels/:" + uname, auth, function(req, res) {
+//         UserModel.find({username: req.params.uname}, function(err, doc) {
+//             console.log(res.json(doc));
+//             return res.json(doc);
+//         });
+//     });
+// };
+
+// app.delete("/rest/user/:id", auth, function(req, res){
+//     UserModel.findById(req.params.id, function(err, user){
+//         user.remove(function(err, count){
+//             UserModel.find(function(err, users){
+//                 res.json(users);
+//             });
+//         });
+//     });
+// });
 
 
 var ip   = process.env.OPENSHIFT_NODEJS_IP   || '127.0.0.1';

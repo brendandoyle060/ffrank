@@ -19,9 +19,9 @@ app.config(function($routeProvider, $httpProvider) {
       .when('/profile/:username', {
           templateUrl: 'views/userprofile/userprofile.html',
           controller: 'UserCtrl',
-          // resolve: {
-          //     loggedin: checkLoggedin
-          // }
+          resolve: {
+              loggedin: checkLoggedInUserProfile
+          }
       })
       .when('/search', {
           templateUrl: 'views/search/search.html',
@@ -29,7 +29,6 @@ app.config(function($routeProvider, $httpProvider) {
       })
       .when('/about', {
           templateUrl: 'views/about/about.html',
-          // controller: 'AboutCtrl' //MAY NOT NEED CONTROLLER
       })
       .when('/login', {
           templateUrl: 'views/login/login.html',
@@ -55,6 +54,36 @@ var checkLoggedin = function($q, $timeout, $http, $location, $rootScope)
         // User is Authenticated
         if (user !== '0')
         {
+            console.log("CHECKLOGGEDIN currentUser.qbs: " + $rootScope.currentUser.qbs);
+            console.log("CHECKLOGGEDIN user.qbs: " + user.qbs);
+            $rootScope.currentUser = user;
+            console.log("CHECKLOGGEDIN currentUser.qbs: " + $rootScope.currentUser.qbs);
+            deferred.resolve();
+        }
+        // User is Not Authenticated
+        else
+        {
+            $rootScope.errorMessage = 'You need to log in.';
+            deferred.reject();
+            $location.url('/login');
+        }
+    });
+    
+    return deferred.promise;
+};
+
+var checkLoggedInUserProfile = function($q, $timeout, $http, $location, $rootScope, $routeParams)
+{
+    console.log("app.js checkLoggedInUserProfile");
+    var deferred = $q.defer();
+
+    $http.get('/loggedin').success(function(user)
+    {
+        console.log("first get");
+        $rootScope.errorMessage = null;
+        // User is Authenticated
+        if (user !== '0')
+        {
             $rootScope.currentUser = user;
             deferred.resolve();
         }
@@ -64,6 +93,27 @@ var checkLoggedin = function($q, $timeout, $http, $location, $rootScope)
             $rootScope.errorMessage = 'You need to log in.';
             deferred.reject();
             $location.url('/login');
+        }
+    });
+
+    $http.get('/username').success(function(user)
+    {
+        console.log("APP second get: " + $routeParams.username);
+        $rootScope.errorMessage = null;
+        // User is Authenticated
+        if (user !== '0')
+        {
+            // $rootScope.otherUser = $routeParams.username;
+            deferred.resolve();
+            // console.log($rootScope.otherUser);
+        }
+        // User is Not Authenticated
+        else
+        {
+            console.log("not Authenticated");
+            $rootScope.errorMessage = 'You need to log in.';
+            deferred.reject();
+            // $location.url('/login');
         }
     });
     

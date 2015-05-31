@@ -1,62 +1,77 @@
-app.controller('PlayerCtrl', function($scope, $http){
-    console.log("PlayerCtrl entered");
+app.controller('PlayerCtrl', function($scope, $http, $rootScope){
+    
+    console.log("PLAYERCTRL called");
 
-    var positions = ["qb", "rb", "wr", "te", "def", "k"];
-    var arraysArray = [];
+    $scope.loadLists = function(currentUser) {
+        console.log("PLAYERCTRL loadLists called");
+        $http.get("/usermodels/" + $rootScope.currentUser)
+        .success(function(response)
+        {
+            console.log("loadLists get: " + response);
+            $rootScope.currentUser = response;
+        });
+    };
 
-    for (x = 0; x < positions.length; x++) {
 
-        var xmlhttp = new XMLHttpRequest();
+    $scope.updateLists = function(user) {
 
-        var filename = "../xml/" + positions[x] + ".xml";
-        // var filename = "xml/qb.xml";
+        console.log("PROFILECTRL UPDATELISTS CALLED");
+        var arraysArray = update_lists();
 
-        xmlhttp.open("GET", filename, false);
-        xmlhttp.send();
-        console.log("XMLHTTP");
-        console.log(xmlhttp);
-        console.log(typeof xmlhttp);
-        var xmlDoc = xmlhttp.responseXML; 
-        console.log("XMLDOC");
-        console.log(xmlDoc);
-        console.log(typeof xmlDoc);
-
-        var allPlayerObjects = xmlDoc.getElementsByTagName("Player");
-        var allPlayerNames = [];
-        var name = "";
-
-        for (i = 0; i < allPlayerObjects.length; i++) { 
-            name = allPlayerObjects[i].getAttribute("displayName");
-            // console.log("player: " + name);
-            allPlayerNames.push(name);
-        }
-
-        arraysArray.push(allPlayerNames);
-
-    }
-
-    $scope.qb = write_letters("qb", arraysArray[0]);
-    $scope.rb = write_letters("rb", arraysArray[1]);
-    $scope.wr = write_letters("wr", arraysArray[2]);
-    $scope.te = write_letters("te", arraysArray[3]);
-    $scope.def = write_letters("def", arraysArray[4]);
-    $scope.k = write_letters("k", arraysArray[5]);
+        user.qbs = arraysArray[0];
+        user.rbs = arraysArray[1];
+        user.wrs = arraysArray[2];
+        user.tes = arraysArray[3];
+        user.defs = arraysArray[4];
+        user.ks = arraysArray[5];
+        
+        $http.put("/usermodels/" + user.username, user)
+        .success(function(response){
+            console.log("GET UPDATELISTS CALLED");
+            console.log("user: " + user.username);
+            // console.log(response);
+            // user.email = "updated@email.com"
+            
+        });
+    };
 
 });
 
+// function write_letters(pos, listOfNames){
+//     var items = document.getElementById(pos + "ol");
 
-function write_letters(pos, listOfNames){
-    var items = document.getElementById(pos);
+//     for (var i = 0; i < listOfNames.length; i++) {
+//         var item = document.createElement("li");
+//         item.setAttribute("class", "ui-state-default");
+//         item.innerHTML = /*"<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"></span>" +*/ listOfNames[i].trim();
+//         items.appendChild(item);
+//     }
 
-    for (var i = 0; i < listOfNames.length; i++) {
-        var item = document.createElement("li");
-        item.setAttribute("class", "ui-state-default");
-        item.innerHTML = "<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"></span>" + listOfNames[i];
-        items.appendChild(item);
+// }
+
+function update_lists(){
+    console.log("UPDATE_LISTS called");
+
+    var positions = ["qb", "rb", "wr", "te", "def", "k"];
+    var updateArraysArray = [];
+
+    for(var j = 0; j < positions.length; j++) {
+        var posol = document.getElementById(positions[j] + "ol");
+        var liArray = posol.children;
+
+        var allPlayers = [];
+
+        for (var i = 0; i < liArray.length; i++) {
+            var item = liArray[i];
+            // console.log(item.textContent);
+            allPlayers.push(item.textContent.trim());
+        }
+        // console.log(allPlayers);
+
+        updateArraysArray.push(allPlayers);
     }
 
+    return updateArraysArray;
 }
 
-function open_currentuser_profile() {
-    location.href = "ffrank-bdoyle.rhcloud.com/profile/" + $rootscope.currentUser.username;
-}
+
