@@ -7,8 +7,8 @@ app.controller('PlayerCtrl', function($scope, $http, $rootScope){
         $http.get("/usermodels/" + user.username)
         .success(function(response)
         {
-            console.log("loadLists get user.qbs: " + user.qbs);
-            console.log("loadLists get response.qbs: " + response.qbs);
+            // console.log("loadLists get user.qbs: " + user.qbs);
+            // console.log("loadLists get response.qbs: " + response.qbs);
 
             // console.log("$rootScope.currentUser.qbs: " + $rootScope.currentUser.qbs);
             // console.log("user.qbs: " + user.qbs);
@@ -46,18 +46,6 @@ app.controller('PlayerCtrl', function($scope, $http, $rootScope){
     };
 
 });
-
-// function write_letters(pos, listOfNames){
-//     var items = document.getElementById(pos + "ol");
-
-//     for (var i = 0; i < listOfNames.length; i++) {
-//         var item = document.createElement("li");
-//         item.setAttribute("class", "ui-state-default");
-//         item.innerHTML = /*"<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"></span>" +*/ listOfNames[i].trim();
-//         items.appendChild(item);
-//     }
-
-// }
 
 function update_lists(){
     console.log("UPDATE_LISTS called");

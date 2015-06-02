@@ -25,12 +25,12 @@
         <link href="../css/jquery-ui-1.11.4/jquery-ui.theme.min.css" rel="stylesheet">
 
         <style>
-            .positional-rankings { list-style-type: none; margin-left: auto; margin-right: auto; padding: 5px; width: 85%; background-color: #696969; }
+            .positional-rankings { list-style-type: none; margin-left: auto; margin-right: auto; padding: 10px; width: 85%; background-color: #696969; overflow-y: scroll; height: 300px;}
             .positional-rankings li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; color:black; font-family: "Times New Roman", Times, serif; background-color: white; }
             .positional-rankings li span { position: absolute; margin-left: -1.3em;  }
             .player-position { list-style-type: none; padding: 0; margin: 0; }
             .player-lists { padding-top: 60px; padding-left: 90px; padding-right: 90px; }
-            .col-md-6 { overflow-y: scroll; height: 300px; }
+            .col-md-6 {  }
             html { position: relative; min-height: 100%; }
             body { margin-bottom: 60px; }
             .footer { position: fixed; bottom: 0; width: 100%; height: 60px; background-color: blue; }
@@ -49,14 +49,7 @@
             $(function() {
                 $( ".player-position" ).sortable({
                     update: function() {
-                        // console.log("BEFORE CALL UPDATELISTS");
-                        // updateLists();
 
-                        // console.log("BEFORE CALL UPDATE_LISTS");
-                        // update_lists();
-
-                        // console.log("BEFORE CALL UPDATE");
-                        // update();
                     }
                 });
                 $( ".player-position" ).disableSelection();
