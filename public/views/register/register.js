@@ -6,6 +6,7 @@ app.controller("RegisterCtrl", function($scope, $http, $location, $rootScope){
         {
             console.log("Your passwords don't match");
             $rootScope.message = "Your passwords don't match";
+            alert("Your passwords don't match!");
         }
         else
         {
@@ -24,13 +25,13 @@ app.controller("RegisterCtrl", function($scope, $http, $location, $rootScope){
 
                 xmlhttp.open("GET", filename, false);
                 xmlhttp.send();
-                console.log("XMLHTTP");
-                console.log(xmlhttp);
-                console.log(typeof xmlhttp);
+                // console.log("XMLHTTP");
+                // console.log(xmlhttp);
+                // console.log(typeof xmlhttp);
                 var xmlDoc = xmlhttp.responseXML; 
-                console.log("XMLDOC");
-                console.log(xmlDoc);
-                console.log(typeof xmlDoc);
+                // console.log("XMLDOC");
+                // console.log(xmlDoc);
+                // console.log(typeof xmlDoc);
 
                 var allPlayerObjects = xmlDoc.getElementsByTagName("Player");
                 var allPlayerNames = [];
@@ -53,19 +54,22 @@ app.controller("RegisterCtrl", function($scope, $http, $location, $rootScope){
             user.defs = arraysArray[4];
             user.ks = arraysArray[5];
 
-            console.log("REGISTER user: " + user.username);
-            console.log("qbs: " + user.qbs);
+            // console.log("REGISTER user: " + user.username);
+            // console.log("qbs: " + user.qbs);
 
 
             /////////////////////////////////////////////////////////
             $http.post("/register", user)
             .success(function(response){
                 console.log("REGISTERCTRL POST");
-                console.log(response);
-                if(response != null)
-                {
+                // console.log("user.qbs: " + user.qbs);
+                // console.log("response.qbs: " + response.qbs);
+                if(response != null) {
                     $rootScope.currentUser = response;
                     $location.url("/profile");
+                }
+                else {
+                    alert("This user already exists!");
                 }
             });
         }

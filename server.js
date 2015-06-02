@@ -28,8 +28,8 @@ var UserModel = mongoose.model('UserModel', UserSchema);
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(multer()); // for parsing multipart/form-data
+app.use(cookieParser());
 app.use(session({ secret: 'this is the secret' }));
-app.use(cookieParser())
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -52,10 +52,12 @@ function(username, password, done)
 }));
 
 passport.serializeUser(function(user, done) {
+    // console.log("serialized user: " + util.inspect(user, {showHidden: false, depth: null}));
     done(null, user);
 });
 
 passport.deserializeUser(function(user, done) {
+    // console.log("deserialized user: " + util.inspect(user, {showHidden: false, depth: null}));
     done(null, user);
 });
 
@@ -69,14 +71,16 @@ app.post("/login", passport.authenticate('local'), function(req, res){
 app.get('/loggedin', function(req, res)
 {
     console.log("/LOGGEDIN");
-    console.log("res: " + util.inspect(res, {showHidden: false, depth: null}));
+    // console.log("res: " + util.inspect(res, {showHidden: false, depth: null}));
+    console.log("req.isAuthenticated(): " + req.isAuthenticated());
+    console.log("req.user: " + req.user);
     res.send(req.isAuthenticated() ? req.user : '0');
 });
 
 app.get('/username', function(req, res)
 {
     console.log("SERVER /username");
-    console.log("req: " + req);
+    // console.log("req: " + req);
     res.send(req.isAuthenticated() ? req.user : '0');
 });
     
@@ -140,13 +144,11 @@ app.put("/usermodels/:username", auth, function(req, res)
 {
     var uName = req.params.username;
     var newUser = req.body;
-    console.log("req.body.email: " + req.body.email);
     // console.log("req.user: " + util.inspect(req.user, {showHidden: false, depth: null}));
     console.log("SERVER USERMODELS/USERNAME user: " + uName)
 
     console.log("SERVER /usermodels/:username");
     console.log("newUser.qbs: " + newUser.qbs);
-    // res.json(doc);
     UserModel.update({username: uName}, {$set : {qbs: newUser.qbs,
                                                 rbs: newUser.rbs,
                                                 wrs: newUser.wrs,
@@ -155,17 +157,24 @@ app.put("/usermodels/:username", auth, function(req, res)
                                                 ks: newUser.ks}},
                                                 function(err, doc) {
 
-        // console.log(doc);
+        console.log(doc);
+        res.json(doc);
     });
+
+
 });
 
 app.get("/usermodels/:username", auth, function (req, res) {
-    UserModel.findOne({username: req.params.name}, function (err, user) {
+    console.log("SERVER get username: " + req.params.username);
+    console.log("req.body: " + util.inspect(req.body, {showHidden: false, depth: null}));
+    UserModel.findOne({username: req.params.username}, function (err, user) {
         if (err) {
+            console.log("err: " + err)
             return next(err);
         }
 
         if (user) {
+            console.log("if user: " + user);
             res.json(user);
         } else {
             res.send(null);

@@ -2,16 +2,26 @@ app.controller('PlayerCtrl', function($scope, $http, $rootScope){
     
     console.log("PLAYERCTRL called");
 
-    $scope.loadLists = function(currentUser) {
-        console.log("PLAYERCTRL loadLists called");
-        $http.get("/usermodels/" + $rootScope.currentUser)
+    var loadLists = function(user) {
+        console.log("PLAYERCTRL loadLists called...user.username: " + user.username);
+        $http.get("/usermodels/" + user.username)
         .success(function(response)
         {
-            console.log("loadLists get: " + response);
+            console.log("loadLists get user.qbs: " + user.qbs);
+            console.log("loadLists get response.qbs: " + response.qbs);
+
+            // console.log("$rootScope.currentUser.qbs: " + $rootScope.currentUser.qbs);
+            // console.log("user.qbs: " + user.qbs);
+
             $rootScope.currentUser = response;
+            // console.log("$rootScope.currentUser.qbs: " + $rootScope.currentUser.qbs);
+            // console.log("user: " + user.qbs);
+
+            // console.log("response: " + response);
         });
     };
 
+    loadLists($rootScope.currentUser);
 
     $scope.updateLists = function(user) {
 
