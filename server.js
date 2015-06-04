@@ -157,7 +157,6 @@ app.put("/usermodels/:username", auth, function(req, res)
                                                 ks: newUser.ks}},
                                                 function(err, doc) {
 
-        // console.log(doc);
         res.json(doc);
     });
 
@@ -166,7 +165,7 @@ app.put("/usermodels/:username", auth, function(req, res)
 
 app.get("/usermodels/:username", auth, function (req, res) {
     console.log("SERVER get username: " + req.params.username);
-    console.log("req.body: " + util.inspect(req.body, {showHidden: false, depth: null}));
+    // console.log("req.body: " + util  .inspect(req.body, {showHidden: false, depth: null}));
     UserModel.findOne({username: req.params.username}, function (err, user) {
         if (err) {
             // console.log("err: " + err)
@@ -177,6 +176,26 @@ app.get("/usermodels/:username", auth, function (req, res) {
             // console.log("if user: " + user);
             res.json(user);
         } else {
+            res.send(null);
+        }
+    });
+});
+
+app.get("/search/:username", auth, function (req, res) {
+    console.log("SERVER get username: " + req.params.username);
+    // console.log("req.body: " + util  .inspect(req.body, {showHidden: false, depth: null}));
+    var uName = req.params.username;
+    UserModel.find({username: {$regex: uName}}, function (err, user) {
+        if (err) {
+            console.log("err: " + err)
+            return next(err);
+        }
+
+        if (user) {
+            console.log("SEARCH RETURNED: " + user);
+            res.json(user);
+        } else {
+            console.log("SEARCH RETURNED NULL");
             res.send(null);
         }
     });

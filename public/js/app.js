@@ -25,7 +25,10 @@ app.config(function($routeProvider, $httpProvider) {
       })
       .when('/search', {
           templateUrl: 'views/search/search.html',
-          controller: 'SearchCtrl' 
+          controller: 'SearchCtrl',
+          resolve: {
+              loggedin: checkLoggedin
+          } 
       })
       .when('/about', {
           templateUrl: 'views/about/about.html',
@@ -112,7 +115,7 @@ var checkLoggedInUserProfile = function($q, $timeout, $http, $location, $rootSco
             console.log("not Authenticated");
             $rootScope.errorMessage = 'You need to log in.';
             deferred.reject();
-            // $location.url('/login');
+            $location.url('/login');
         }
     });
     

@@ -42,13 +42,23 @@
             </div>
           </div>
 
-          <div class="inner cover darkened">
-            <h1 class="cover-heading">Search</h1>
-            <h2>{{currentUser.username}}</h2>
-            <hr/>
-            <input ng-model="user.username" type="text" id="inputUsername" class="form-control" placeholder="Search by Username" required autofocus>
-            <button ng-click="search(user)" class="btn btn-lg btn-primary btn-block" type="submit">Search</button>
-          </div>
+          <form class="search">
+            <div class="inner cover darkened">
+              <h1 class="cover-heading">Search</h1>
+              <h2>{{currentUser.username}}</h2>
+              <hr/>
+              <input ng-model="user.username" type="text" id="inputUsername" class="form-control" placeholder="Search by Username" required autofocus>
+              <button ng-click="search(user)" class="btn btn-lg btn-primary btn-block" type="submit">Search</button>
+            </div>
+          </form>
+
+          <ul class="search-results darkened">
+              <li class="a-search-result" ng-repeat="sr in searchResults track by $index">
+                  <a ng-href="#profile/{{sr.username}}">
+                    {{sr.username}}
+                  </a>
+              </li>
+          </ul>
 
           <div class="mastfoot">
             <div class="inner">
@@ -60,11 +70,6 @@
       </div>
     </div>
 
-<!--
-<h1>Home</h1>
-
-{{currentUser}}
--->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
