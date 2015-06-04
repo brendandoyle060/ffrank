@@ -11,30 +11,71 @@ app.controller("UserCtrl", function($scope, $http, $location, $rootScope, $route
 
 
 
-    $scope.user = {};
+    // $scope.user = {};
     // $scope.comments = [];
 
-    console.log("/usermodels/$routeParams.username: "  + $routeParams.username);
+    console.log("$routeParams.username: "  + $routeParams.username);
     //Get other users desired profile
-    var pageUser = $http.get('/usermodels/' + $routeParams.username)    
-        .success(function (msg) {            
-            if (msg) {
-                console.log("msg" + msg);
-                if (msg.username == $rootScope.currentUser.username) {
-                    console.log("msg.username==$rootScope.currentUser.username");
-                    // $location.url('/profile/'); //FIX?
+    var pageUser = function(user) {
+        console.log("PAGEUSER USER: " + user);
+        $http.get('/usermodels/' + user)    
+            .success(function (msg) {         
+                console.log("pageUser success, msg: " + msg);
+                if (msg) {
+                    console.log("msg.username: " + msg.username);
+                    if (msg.username == $rootScope.currentUser.username) {
+                        console.log("msg.username==$rootScope.currentUser.username, redirecting to /profile");
+                        $location.url('/profile/');
+                    }
+                    else {
+                        console.log("ELSE MSG: " + msg);
+                        $scope.otherUser = msg;
+                    }
+
+                } else {
+                    $scope.error = "This user does not exist.";
+                    alert($scope.error);
                 }
+                console.log("$scope.otherUser.username: " + $scope.otherUser.username);
 
-                $scope.user = msg;
-
-                console.log("$scope.user: " + $scope.user)
-            } else {
-                $scope.error = "This user does not exist.";
-            }
         });
-    console.log("pageUser.email: " + pageUser.email);
+        // loadLists($scope.otherUser);
+    };
 
-    console.log("USERCTRL done");
+
+
+
+
+    // console.log("pageUser.email: " + pageUser.email);
+
+    // console.log("USERCTRL done");
+
+
+
+
+    // var loadLists = function(user) {
+    //     console.log("USERCTRL loadLists called...user.username: " + user.username);
+    //     $http.get("/usermodels/" + user.username)
+    //     .success(function(response)
+    //     {
+    //         console.log("loadLists get user.username: " + user.username);
+    //         console.log("loadLists get user.qbs: " + user.qbs);
+    //         console.log("loadLists get response.qbs: " + response.qbs);
+
+    //         // console.log("$rootScope.currentUser.qbs: " + $rootScope.currentUser.qbs);
+    //         // console.log("user.qbs: " + user.qbs);
+
+    //         $scope.otherUser = response;
+    //         // console.log("$rootScope.currentUser.qbs: " + $rootScope.currentUser.qbs);
+    //         // console.log("user: " + user.qbs);
+
+    //         // console.log("response: " + response);
+    //     });
+    // };
+
+    pageUser($routeParams.username);
+
+
 
 });
 

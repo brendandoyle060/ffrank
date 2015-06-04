@@ -113,7 +113,7 @@
                             <h2>Quarterback</h2>
                             <div class="positional-rankings" id="qb">
                                 <ol class="player-position" id="qbol">
-                                    <li class="ui-state-default" ng-repeat="q in currentUser.qbs track by $index">
+                                    <li class="ui-state-default" ng-repeat="q in otherUser.qbs track by $index">
                                         {{q}}
                                     </li>
                                 </ol>
@@ -123,7 +123,7 @@
                             <h2>Running Back</h2>
                             <div class="positional-rankings" id="rb">
                                 <ol class="player-position" id="rbol">
-                                    <li class="ui-state-default" ng-repeat="r in currentUser.rbs track by $index">
+                                    <li class="ui-state-default" ng-repeat="r in otherUser.rbs track by $index">
                                         {{r}}
                                     </li>
                                 </ol>
@@ -136,7 +136,7 @@
                             <h2>Wide Receiver</h2>
                             <div class="positional-rankings" id="wr">
                                 <ol class="player-position" id="wrol">
-                                    <li class="ui-state-default" ng-repeat="w in currentUser.wrs track by $index">
+                                    <li class="ui-state-default" ng-repeat="w in otherUser.wrs track by $index">
                                         {{w}}
                                     </li>
                                 </ol>
@@ -146,7 +146,7 @@
                             <h2>Tight End</h2>
                             <div class="positional-rankings" id="te">
                                 <ol class="player-position" id="teol">
-                                    <li class="ui-state-default" ng-repeat="t in currentUser.tes track by $index">
+                                    <li class="ui-state-default" ng-repeat="t in otherUser.tes track by $index">
                                         {{t}}
                                     </li>
                                 </ol>
@@ -159,7 +159,7 @@
                             <h2>Defense/Special Teams</h2>
                             <div class="positional-rankings" id="def">
                                 <ol class="player-position" id="defol">
-                                    <li class="ui-state-default" ng-repeat="d in currentUser.defs track by $index">
+                                    <li class="ui-state-default" ng-repeat="d in otherUser.defs track by $index">
                                         {{d}}
                                     </li>
                                 </ol>
@@ -169,7 +169,7 @@
                             <h2>Kickers</h2>
                             <div class="positional-rankings" id="k">
                                 <ol class="player-position" id="kol">
-                                    <li class="ui-state-default" ng-repeat="k in currentUser.ks track by $index">
+                                    <li class="ui-state-default" ng-repeat="k in otherUser.ks track by $index">
                                         {{k}}
                                     </li>
                                 </ol>
