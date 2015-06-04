@@ -39,6 +39,8 @@
             .row { padding-top: 20px; padding-bottom: 20px; }
             .random { margin-right: 20px; margin-top: 100px;}
             h2 { text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000; }
+            .table { background-color: #696969; border: 1px solid black; }
+            .favorites { margin-bottom: 100px; }
 
         </style>
         <script src="../js/jquery-1.11.2.js"></script>
@@ -69,26 +71,8 @@
                                     <li class="active"><a href="#profile">Profile</a></li>
                                     <!-- <li ng-show="currentUser"><a href="#/profile/{{currentUser.username}}">Profile</a></li> -->
                                     <li><a href="#search">Search</a></li>
-                                    <!-- <li><a href="#about">About</a></li>
-                                    <li><a href="#favorites">Favorites</a></li>
-                                    <li><a href="#login">Log In</a></li> -->
-                                    <li><a href="#register">Register</a></li>
-
-                                    <!-- <ul class="nav navbar-nav navbar-right"> -->
+                                    <li><a href="#about">About</a></li>
                                     <li ng-show="currentUser" ng-click="logout()"><a href="#/home">Logout</a></li>
-                                    <!-- </ul> -->
-                                    <!-- <li>
-                                        <form class="navbar-form" ng-show="!currentUser">
-                                            <div class="form-group">
-                                                <input ng-model="username" type="text" placeholder="Username" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <input ng-model="password" type="password" placeholder="Password" class="form-control">
-                                            </div>
-                                            <button ng-click="login()" type="button" class="btn btn-success">Sign in</button>
-                                            
-                                        </form>
-                                    </li> -->
 
                                 </ul>
                             </nav>
@@ -98,11 +82,9 @@
 
 
                 <div class="random">
-                    <h3>{{currentUser.username}}</h3>
+                    <!-- <h3>{{currentUser.username}}</h3> -->
                     <button ng-click="updateLists(currentUser)" type="button" class="btn btn-lg btn-success pull-right" type="submit">Save Lists</button>
                 </div>
-
-
 
 
                 <div class="container player-lists">
@@ -175,6 +157,27 @@
                         </div>
                     </div>
 
+
+
+
+
+                    <table class="table favorites">
+                        <thead>
+                            <th>
+                                {{currentUser.username}}'s favorites
+                            </th>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="favs in currentUser.favorites">
+                                <td ng-repeat = "fav in favs">
+                                    <a ng-href="#profile/{{fav}}">
+                                        {{fav}}
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                      
 
 
                     <div class="mastfoot">

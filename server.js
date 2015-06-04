@@ -88,7 +88,7 @@ app.post('/logout', function(req, res)
 {
     req.logOut();
     res.send(200);
-});     
+});
 
 app.post('/register', function(req, res)
 {
@@ -154,7 +154,8 @@ app.put("/usermodels/:username", auth, function(req, res)
                                                 wrs: newUser.wrs,
                                                 tes: newUser.tes,
                                                 defs: newUser.defs,
-                                                ks: newUser.ks}},
+                                                ks: newUser.ks,
+                                                favorites: newUser.favorites}},
                                                 function(err, doc) {
 
         res.json(doc);

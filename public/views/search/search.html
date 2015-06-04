@@ -33,9 +33,7 @@
                   <li><a href="#profile">Profile</a></li>
                   <li class="active"><a href="#search">Search</a></li>
                   <li><a href="#about">About</a></li>
-                  <li><a href="#favorites">Favorites</a></li>
-                  <li><a href="#login">Log In</a></li>
-                  <li><a href="#register">Register</a></li>
+                  <li ng-show="currentUser" ng-click="logout()"><a href="#/home">Logout</a></li>
 
                 </ul>
               </nav>
@@ -45,7 +43,7 @@
           <form class="search">
             <div class="inner cover darkened">
               <h1 class="cover-heading">Search</h1>
-              <h2>{{currentUser.username}}</h2>
+              <!-- <h2>{{currentUser.username}}</h2> -->
               <hr/>
               <input ng-model="user.username" type="text" id="inputUsername" class="form-control" placeholder="Search by Username" required autofocus>
               <button ng-click="search(user)" class="btn btn-lg btn-primary btn-block" type="submit">Search</button>

@@ -40,7 +40,9 @@
             .row { padding-top: 20px; padding-bottom: 20px; }
             .random { margin-right: 20px; margin-top: 100px;}
             h2 { text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000; }
-
+            .table { background-color: #696969; border: 1px solid black; }
+            .favorites { margin-bottom: 100px; }
+            
         </style>
         <script src="../js/jquery-1.11.2.js"></script>
         <script src="../css/jquery-ui-1.11.4/jquery-ui.js"></script>
@@ -71,26 +73,9 @@
                                     <li class="active"><a href="#profile">Profile</a></li>
                                     <!-- <li ng-show="currentUser"><a href="#/profile/{{currentUser.username}}">Profile</a></li> -->
                                     <li><a href="#search">Search</a></li>
-                                    <!-- <li><a href="#about">About</a></li>
-                                    <li><a href="#favorites">Favorites</a></li>
-                                    <li><a href="#login">Log In</a></li> -->
-                                    <li><a href="#register">Register</a></li>
-
-                                    <!-- <ul class="nav navbar-nav navbar-right"> -->
+                                    <li><a href="#about">About</a></li>
                                     <li ng-show="currentUser" ng-click="logout()"><a href="#/home">Logout</a></li>
-                                    <!-- </ul> -->
-                                    <!-- <li>
-                                        <form class="navbar-form" ng-show="!currentUser">
-                                            <div class="form-group">
-                                                <input ng-model="username" type="text" placeholder="Username" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <input ng-model="password" type="password" placeholder="Password" class="form-control">
-                                            </div>
-                                            <button ng-click="login()" type="button" class="btn btn-success">Sign in</button>
-                                            
-                                        </form>
-                                    </li> -->
+
 
                                 </ul>
                             </nav>
@@ -100,9 +85,9 @@
 
 
                 <div class="random">
-                    <h3>Current User: {{currentUser.username}}</h3>
-                    <h3>Other User: {{otherUser.username}}</h3>
-                    <button ng-click="addToFavorites(user.username)" type="button" class="btn btn-lg btn-warning pull-right">Add {{otherUser.username}} to Favorites</button>
+                    <!-- <h3>Current User: {{currentUser.username}}</h3>
+                    <h3>Other User: {{otherUser.username}}</h3> -->
+                    <button ng-click="addToFavorites(otherUser.username)" type="button" class="btn btn-lg btn-warning pull-right">Add {{otherUser.username}} to Favorites</button>
                 </div>
 
 
@@ -176,6 +161,25 @@
                             </div>
                         </div>
                     </div>
+
+
+
+                    <table class="table favorites">
+                        <thead>
+                            <th>
+                                {{otherUser.username}}'s favorites
+                            </th>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="favs in otherUser.favorites">
+                                <td ng-repeat = "fav in favs">
+                                    <a ng-href="#profile/{{fav}}">
+                                        {{fav}}
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
 
 
 
