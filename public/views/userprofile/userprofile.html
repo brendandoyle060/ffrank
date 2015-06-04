@@ -171,8 +171,8 @@
                             </th>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="favs in otherUser.favorites">
-                                <td ng-repeat = "fav in favs">
+                            <tr ng-repeat="fav in otherUser.favorites">
+                                <td>
                                     <a ng-href="#profile/{{fav}}">
                                         {{fav}}
                                     </a>
