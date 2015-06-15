@@ -20,7 +20,7 @@
   </head>
 
   <body ng-app="PassportApp">
-    <div class="site-wrapper">
+    <div ng-controller="AboutCtrl" class="site-wrapper">
       <div class="site-wrapper-inner">
         <div class="cover-container">
 
@@ -33,8 +33,10 @@
                   <li><a href="#profile">Profile</a></li>
                   <li><a href="#search">Search</a></li>
                   <li class="active"><a href="#about">About</a></li>
-                  <li><a href="#search">Log In</a></li>
-                  <li><a href="#register">Register</a></li>
+                  <li ng-hide="currentUser"><a href="#login">Log In</a></li>
+                  <li ng-hide="currentUser"><a href="#register">Register</a></li>
+                  <li ng-show="currentUser" ng-click="logout()"><a href="#home">Logout</a></li>
+
 
                 </ul>
               </nav>

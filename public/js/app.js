@@ -4,10 +4,8 @@ app.config(function($routeProvider, $httpProvider) {
     console.log("app.js config");
     $routeProvider
       .when('/home', {
-          templateUrl: 'views/home/home.html'
-      })
-      .when('/testview', {
-          templateUrl: 'views/testview/testview.html'
+          templateUrl: 'views/home/home.html',
+          controller: 'HomeCtrl'
       })
       .when('/profile', {
           templateUrl: 'views/profile/profile.html',
@@ -32,6 +30,7 @@ app.config(function($routeProvider, $httpProvider) {
       })
       .when('/about', {
           templateUrl: 'views/about/about.html',
+          controller: 'AboutCtrl'
       })
       .when('/login', {
           templateUrl: 'views/login/login.html',

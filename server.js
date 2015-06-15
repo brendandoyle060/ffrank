@@ -176,7 +176,6 @@ app.put("/usermodels/favorites/:username", auth, function(req, res)
     console.log("newUser.favorites: " + newUser.favorites);
     UserModel.update({username: uName}, {$set : {favorites: newUser.favorites}},
                                                 function(err, doc) {
-
         res.json(doc);
     });
 
