@@ -1,4 +1,4 @@
-app.controller('PlayerCtrl', function($scope, $http, $rootScope){
+app.controller('PlayerCtrl', function($scope, $http, $rootScope, $location){
     
     console.log("PLAYERCTRL called");
 
@@ -42,6 +42,17 @@ app.controller('PlayerCtrl', function($scope, $http, $rootScope){
             // console.log(response);
             // user.email = "updated@email.com"
             
+        });
+    };
+
+
+    $scope.logout = function(){
+        $http.post("/logout")
+        .success(function(){
+            console.log("PROFILECTRL POST LOGOUT");
+            $scope.otherUser = null;
+            $rootScope.currentUser = null;
+            $location.url("/home");
         });
     };
 

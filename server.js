@@ -86,8 +86,10 @@ app.get('/username', function(req, res)
     
 app.post('/logout', function(req, res)
 {
+    console.log("/LOGOUT");
     req.logOut();
     res.send(200);
+    console.log("req.isAuthenticated(): " + req.isAuthenticated());
 });
 
 app.post('/register', function(req, res)
@@ -154,8 +156,25 @@ app.put("/usermodels/:username", auth, function(req, res)
                                                 wrs: newUser.wrs,
                                                 tes: newUser.tes,
                                                 defs: newUser.defs,
-                                                ks: newUser.ks,
-                                                favorites: newUser.favorites}},
+                                                ks: newUser.ks}},
+                                                function(err, doc) {
+
+        res.json(doc);
+    });
+
+
+});
+
+app.put("/usermodels/favorites/:username", auth, function(req, res)
+{
+    var uName = req.params.username;
+    var newUser = req.body;
+    // console.log("req.user: " + util.inspect(req.user, {showHidden: false, depth: null}));
+    console.log("SERVER USERMODELS/USERNAME user: " + uName)
+
+    console.log("SERVER /usermodels/:username");
+    console.log("newUser.favorites: " + newUser.favorites);
+    UserModel.update({username: uName}, {$set : {favorites: newUser.favorites}},
                                                 function(err, doc) {
 
         res.json(doc);

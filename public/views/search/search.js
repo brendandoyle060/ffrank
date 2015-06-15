@@ -8,7 +8,16 @@ app.controller("SearchCtrl", function($scope, $http, $location, $rootScope){
             $scope.searchResults = response;
             // console.log("$scope.searchResults: " + $scope.searchResults);
         });
+    };
 
+    $scope.logout = function(){
+        $http.post("/logout")
+        .success(function(){
+            console.log("SEARCHCTRL POST LOGOUT");
+            $scope.otherUser = null;
+            $rootScope.currentUser = null;
+            $location.url("/home");
+        });
+    };
 
-    }
 });

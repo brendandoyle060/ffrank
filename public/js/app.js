@@ -124,10 +124,12 @@ var checkLoggedInUserProfile = function($q, $timeout, $http, $location, $rootSco
 
 
 app.controller("NavCtrl", function($scope, $http, $location, $rootScope){
-    console.log("app.js app.controller");
+    console.log("NAVCTRL");
     $scope.logout = function(){
         $http.post("/logout")
         .success(function(){
+            console.log("NAVCTRL POST LOGOUT");
+            $scope.otherUser = null;
             $rootScope.currentUser = null;
             $location.url("/home");
         });
