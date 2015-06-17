@@ -7,7 +7,6 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
 
     <title>Fantasy Football Rankings Home</title>
 
@@ -20,11 +19,11 @@
   </head>
 
   <body ng-app="PassportApp">
-    <div ng-controller="HomeCtrl" class="site-wrapper">
+    <div class="site-wrapper">
       <div class="site-wrapper-inner">
         <div class="cover-container">
 
-          <div class="masthead clearfix">
+          <div ng-controller="HomeCtrl" class="masthead clearfix">
             <div class="inner">
               <h3 class="masthead-brand">FFRank</h3>
               <nav>
