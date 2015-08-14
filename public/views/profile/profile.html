@@ -70,8 +70,8 @@
                                     <li><a href="#home">Home</a></li>
                                     <li class="active"><a href="#profile">Profile</a></li>
                                     <!-- <li ng-show="currentUser"><a href="#/profile/{{currentUser.username}}">Profile</a></li> -->
-                                    <li><a href="#search">Search</a></li>
-                                    <li><a href="#about">About</a></li>
+                                    <!-- <li><a href="#search">Search</a></li>
+                                    <li><a href="#about">About</a></li> -->
                                     <li ng-show="currentUser" ng-click="logout()"><a href="#home">Logout</a></li>
 
                                 </ul>
@@ -89,7 +89,7 @@
 
                 <div class="container player-lists">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <h2>Quarterback</h2>
                             <div class="positional-rankings" id="qb">
                                 <ol class="player-position" id="qbol">
@@ -99,7 +99,7 @@
                                 </ol>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
                             <h2>Running Back</h2>
                             <div class="positional-rankings" id="rb">
                                 <ol class="player-position" id="rbol">
@@ -108,10 +108,10 @@
                                     </li>
                                 </ol>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
 
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-md-6">
                             <h2>Wide Receiver</h2>
                             <div class="positional-rankings" id="wr">
@@ -154,30 +154,10 @@
                                     </li>
                                 </ol>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
 
-
-
-
-
-                    <table class="table favorites">
-                        <thead>
-                            <th>
-                                {{currentUser.username}}'s favorites
-                            </th>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="fav in currentUser.favorites">
-                                <td>
-                                    <a ng-href="#profile/{{fav}}">
-                                        {{fav}}
-                                    </a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-
+                
                 </div> 
             </div>
         </div>
