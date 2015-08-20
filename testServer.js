@@ -9,6 +9,7 @@ var session       = require('express-session');
 var mongoose      = require('mongoose');
 var db = process.env.OPENSHIFT_MONGODB_DB_URL || "mongodb://localhost/test";
 var util = require('util');
+var squel = require('squel');
 
 var UserSchema = new mongoose.Schema({
     username: String,
@@ -29,9 +30,10 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(multer()); // for parsing multipart/form-data
 app.use(cookieParser());
-app.use(session({ secret: 'this is the secret' }));
+app.use(session({ secret: 'an embarrassing photo of spongebob at the christmas party' }));
 app.use(passport.initialize());
 app.use(passport.session());
+// app.use(squel.session());
 
 app.use(express.static(__dirname + '/public'));
 
@@ -73,7 +75,7 @@ app.get('/loggedin', function(req, res)
     console.log("/LOGGEDIN");
     // console.log("res: " + util.inspect(res, {showHidden: false, depth: null}));
     console.log("req.isAuthenticated(): " + req.isAuthenticated());
-    console.log("req.user: " + req.user);
+    // console.log("req.user: " + req.user);
     res.send(req.isAuthenticated() ? req.user : '0');
 });
 
@@ -86,9 +88,11 @@ app.get('/username', function(req, res)
     
 app.post('/logout', function(req, res)
 {
+    console.log("/LOGOUT");
     req.logOut();
     res.send(200);
-});     
+    console.log("req.isAuthenticated(): " + req.isAuthenticated());
+});
 
 app.post('/register', function(req, res)
 {
@@ -135,7 +139,7 @@ var auth = function(req, res, next)
 app.get("/usermodels", auth, function(req, res)
 {
     UserModel.find(function(err, docs) {
-        console.log(docs);
+        // console.log(docs);
         res.json(docs);
     });
 });
@@ -148,7 +152,7 @@ app.put("/usermodels/:username", auth, function(req, res)
     console.log("SERVER USERMODELS/USERNAME user: " + uName)
 
     console.log("SERVER /usermodels/:username");
-    console.log("newUser.qbs: " + newUser.qbs);
+    // console.log("newUser.qbs: " + newUser.qbs);
     UserModel.update({username: uName}, {$set : {qbs: newUser.qbs,
                                                 rbs: newUser.rbs,
                                                 wrs: newUser.wrs,
@@ -157,7 +161,23 @@ app.put("/usermodels/:username", auth, function(req, res)
                                                 ks: newUser.ks}},
                                                 function(err, doc) {
 
-        console.log(doc);
+        res.json(doc);
+    });
+
+
+});
+
+app.put("/usermodels/favorites/:username", auth, function(req, res)
+{
+    var uName = req.params.username;
+    var newUser = req.body;
+    // console.log("req.user: " + util.inspect(req.user, {showHidden: false, depth: null}));
+    console.log("SERVER USERMODELS/USERNAME user: " + uName)
+
+    console.log("SERVER /usermodels/:username");
+    console.log("newUser.favorites: " + newUser.favorites);
+    UserModel.update({username: uName}, {$set : {favorites: newUser.favorites}},
+                                                function(err, doc) {
         res.json(doc);
     });
 
@@ -166,15 +186,15 @@ app.put("/usermodels/:username", auth, function(req, res)
 
 app.get("/usermodels/:username", auth, function (req, res) {
     console.log("SERVER get username: " + req.params.username);
-    console.log("req.body: " + util.inspect(req.body, {showHidden: false, depth: null}));
+    // console.log("req.body: " + util  .inspect(req.body, {showHidden: false, depth: null}));
     UserModel.findOne({username: req.params.username}, function (err, user) {
         if (err) {
-            console.log("err: " + err)
+            // console.log("err: " + err)
             return next(err);
         }
 
-        if (user) {
-            console.log("if user: " + user);
+        if (user == req.params.username) {
+            // console.log("if user: " + user);
             res.json(user);
         } else {
             res.send(null);
@@ -182,24 +202,25 @@ app.get("/usermodels/:username", auth, function (req, res) {
     });
 });
 
-// var getUser = function(uname) {
-//     app.get("/usermodels/:" + uname, auth, function(req, res) {
-//         UserModel.find({username: req.params.uname}, function(err, doc) {
-//             console.log(res.json(doc));
-//             return res.json(doc);
-//         });
-//     });
-// };
+app.get("/search/:username", auth, function (req, res) {
+    console.log("SERVER get username: " + req.params.username);
+    // console.log("req.body: " + util  .inspect(req.body, {showHidden: false, depth: null}));
+    var uName = req.params.username;
+    UserModel.find({username: {$regex: uName}}, function (err, user) {
+        if (err) {
+            console.log("err: " + err)
+            return next(err);
+        }
 
-// app.delete("/rest/user/:id", auth, function(req, res){
-//     UserModel.findById(req.params.id, function(err, user){
-//         user.remove(function(err, count){
-//             UserModel.find(function(err, users){
-//                 res.json(users);
-//             });
-//         });
-//     });
-// });
+        if (user) {
+            console.log("SEARCH RETURNED: " + user);
+            res.json(user);
+        } else {
+            console.log("SEARCH RETURNED NULL");
+            res.send(null);
+        }
+    });
+});
 
 
 var ip   = process.env.OPENSHIFT_NODEJS_IP   || '127.0.0.1';
@@ -209,3 +230,4 @@ mongoose.connect(db);
 
 
 app.listen(port, ip);
+

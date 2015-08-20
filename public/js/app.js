@@ -14,24 +14,24 @@ app.config(function($routeProvider, $httpProvider) {
               loggedin: checkLoggedin
           }
       })
-      // .when('/profile/:username', {
-      //     templateUrl: 'views/userprofile/userprofile.html',
-      //     controller: 'UserCtrl',
-      //     resolve: {
-      //         loggedin: checkLoggedInUserProfile
-      //     }
-      // })
-      // .when('/search', {
-      //     templateUrl: 'views/search/search.html',
-      //     controller: 'SearchCtrl',
-      //     resolve: {
-      //         loggedin: checkLoggedin
-      //     } 
-      // })
-      // .when('/about', {
-      //     templateUrl: 'views/about/about.html',
-      //     controller: 'AboutCtrl'
-      // })
+      .when('/profile/:username', {
+          templateUrl: 'views/userprofile/userprofile.html',
+          controller: 'UserCtrl',
+          resolve: {
+              loggedin: checkLoggedInUserProfile
+          }
+      })
+      .when('/search', {
+          templateUrl: 'views/search/search.html',
+          controller: 'SearchCtrl',
+          resolve: {
+              loggedin: checkLoggedin
+          } 
+      })
+      .when('/about', {
+          templateUrl: 'views/about/about.html',
+          controller: 'AboutCtrl'
+      })
       .when('/login', {
           templateUrl: 'views/login/login.html',
           controller: 'LoginCtrl'
