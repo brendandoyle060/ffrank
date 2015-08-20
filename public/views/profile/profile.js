@@ -67,13 +67,13 @@ function update_lists(){
     for(var j = 0; j < positions.length; j++) {
         var posol = document.getElementById(positions[j] + "ol");
         var liArray = posol.children;
-
+        console.log("posol.children: " + posol.children)
         var allPlayers = [];
 
         for (var i = 0; i < liArray.length; i++) {
             var item = liArray[i];
             // console.log(item.textContent);
-            allPlayers.push(item.textContent.trim());
+            allPlayers.push(item.textContent.trim().substring(3));
         }
         // console.log(allPlayers);
 
