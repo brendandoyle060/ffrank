@@ -11,3 +11,7 @@ Open terminal 2
 cd frank/ffrank
 node server.js
 
+
+To push
+---------------
+git push ff
