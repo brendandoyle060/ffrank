@@ -11,6 +11,12 @@ Open terminal 2
 cd frank/ffrank
 node server.js
 
+In browser
+---------------
+localhost:3000
+
+
+
 
 To push
 ---------------
